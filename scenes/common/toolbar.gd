@@ -30,7 +30,9 @@ func set_sound():
 	
 
 func _on_spoil_button_toggled(button_pressed):
-	self.main.change_spoils(button_pressed)
+	#TODO linklinsse
+	#self.main.change_spoils(button_pressed)
+	pass
 
 
 func set_billy():
@@ -132,4 +134,6 @@ func _on_button_options():
 
 
 func _on_sound_button_toggled(button_pressed):
-	self.main.change_sound(button_pressed)
+	#self.main.change_sound(button_pressed)
+	#TODO LINKLINSSE
+	pass

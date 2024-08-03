@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Success.tscn" type="PackedScene" id=1]
-[ext_resource path="res://SuccessPopup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/pages/success/scenes/Success.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/pages/adventure/scenes/SuccessPopup.gd" type="Script" id=2]
 [ext_resource path="res://images/particule.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]

@@ -23,17 +23,17 @@ config/icon="res://images/fdcn_icon.png"
 
 [autoload]
 
-Sounder="*res://Sounder.tscn"
-Utils="*res://utils.gd"
-BookData="*res://BookData.gd"
-AppParameters="*res://Parameters.gd"
-Swiper="*res://swipe.gd"
-Player="*res://player.gd"
+Sounder="*res://scripts/auto_loads/sounder.tscn"
+Utils="*res://scripts/auto_loads/utils.gd"
+BookData="*res://scripts/auto_loads/book_data.gd"
+AppParameters="*res://scripts/auto_loads/parameters.gd"
+Swiper="*res://scripts/auto_loads/swipe.gd"
+Player="*res://scripts/auto_loads/player.gd"
 
 [display]
 
-window/size/width=558
-window/size/height=1046
+window/size/width=720
+window/size/height=1080
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

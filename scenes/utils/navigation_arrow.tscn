@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/utils/navigation_arrow.gd" type="Script" id=2]
+
+[node name="navigation_arrow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -656.0
+rect_pivot_offset = Vector2( 360, 540 )
+script = ExtResource( 2 )
+
+[node name="poly" type="Polygon2D" parent="."]
+position = Vector2( 128, 706.366 )
+rotation = 1.5708
+scale = Vector2( 1.11875, 0.99224 )
+color = Color( 0.192157, 0.231373, 0.278431, 1 )
+polygon = PoolVector2Array( 333.974, 64.4993, 305.372, 129, -602.785, 129.004, -631.387, 64.5032 )
+
+[node name="text" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -476.0
+margin_right = 984.0
+margin_bottom = -412.0
+rect_rotation = 90.0
+custom_fonts/font = ExtResource( 1 )
+text = "unset"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="chevron" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -476.0
+margin_right = 32.0
+margin_bottom = 476.0
+custom_fonts/font = ExtResource( 1 )
+text = "<"
+valign = 1
+
+[node name="button" type="TextureButton" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -476.0
+margin_right = 32.0
+margin_bottom = 476.0

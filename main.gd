@@ -1,16 +1,16 @@
-extends Node2D
+extends Control
 
 
 var current_lines = []
 
 
-onready var Bread = preload('res://bread.tscn')
-onready var Choice = preload('res://ChapterChoice.tscn')
-onready var EndingChoice = preload('res://EndingChoice.tscn')
-onready var Success = preload('res://Success.tscn')
-onready var LoreEntry = preload('res://LoreEntry.tscn')
-onready var Item = preload('res://Item.tscn')
-onready var ItemPopup = preload('res://ItemPopup.tscn')
+onready var Bread = preload("res://scenes/pages/adventure/scenes/bread.tscn")
+onready var Choice = preload("res://scenes/pages/adventure/scenes/ChapterChoice.tscn")
+onready var EndingChoice = preload("res://scenes/pages/adventure/scenes/EndingChoice.tscn")
+onready var Success = preload("res://scenes/pages/success/scenes/Success.tscn")
+onready var LoreEntry = preload("res://scenes/pages/lore/scenes/LoreEntry.tscn")
+onready var Item = preload("res://scenes/Item.tscn")
+onready var ItemPopup = preload("res://scenes/pages/adventure/scenes/ItemPopup.tscn")
 
 onready var gauge = $Background/GlobalCompletion/Gauge
 
@@ -98,26 +98,27 @@ func go_to_node(node_id):
 	# If it's a combat, show it
 	var node = BookData.get_node(node_id)
 	if node.is_combat():
-		$Combat/Nom.text = node.get_combat_name()
-		$Combat/EnnemiPvValue.text = '%s' % node.get_combat_pv()
-		$Combat/EnnemiArmValue.text = '%s' % node.get_combat_armure()
-		$Combat/EnnemiHabValue.text = '%s' % node.get_combat_hab()
-		$Combat/EnnemiDegValue.text = '%s' % node.get_combat_degat()
-		# We display the Pyro only if he help us
-		var hab_pyro = node.get_combat_pyro()
-		if hab_pyro != 0:
-			$Combat/SpritePyro.visible = true
-			$Combat/PyroHab.visible = true
-			$Combat/PyroHab.text = '+%s' % hab_pyro
-		else:  # he is not helping us
-			$Combat/SpritePyro.visible = false
-			$Combat/PyroHab.visible = false
-		# Update the billy stats
-		self._update_billy_in_combat()
+		pass
+#		$Combat/Nom.text = node.get_combat_name()
+#		$Combat/EnnemiPvValue.text = '%s' % node.get_combat_pv()
+#		$Combat/EnnemiArmValue.text = '%s' % node.get_combat_armure()
+#		$Combat/EnnemiHabValue.text = '%s' % node.get_combat_hab()
+#		$Combat/EnnemiDegValue.text = '%s' % node.get_combat_degat()
+#		# We display the Pyro only if he help us
+#		var hab_pyro = node.get_combat_pyro()
+#		if hab_pyro != 0:
+#			$Combat/SpritePyro.visible = true
+#			$Combat/PyroHab.visible = true
+#			$Combat/PyroHab.text = '+%s' % hab_pyro
+#		else:  # he is not helping us
+#			$Combat/SpritePyro.visible = false
+#			$Combat/PyroHab.visible = false
+#		# Update the billy stats
+#		self._update_billy_in_combat()
 		# Display the whole combat panel
-		$Combat.visible = true
-	else:
-		$Combat.visible = false
+#		$Combat.visible = true
+#	else:
+#		$Combat.visible = false
 
 
 func _update_billy_in_combat():
@@ -179,14 +180,20 @@ func print_debug(s):
 
 
 func _register_top_menus():
-	self.top_menus.append($Background/top_menu)
-	self.top_menus.append($Chapitres/top_menu)
-	self.top_menus.append($Succes/top_menu)
-	self.top_menus.append($Lore/top_menu)
-	self.top_menus.append($About/top_menu)
-	
-	for top_menu in self.top_menus:
-		top_menu.register_main(self)
+	#TODO Linlklinsse
+	pass
+#	self.top_menus.append($Background/top_menu)
+#	self.top_menus.append($Chapitres/top_menu)
+#	self.top_menus.append($Succes/top_menu)
+#	self.top_menus.append($Lore/top_menu)
+#	self.top_menus.append($About/top_menu)
+#
+#	for top_menu in self.top_menus:
+#		if (top_menu.has_method("register_main")):
+#			top_menu.register_main(self)
+#		else:
+#			print("Fonction register_main nexiste pas dans ", top_menu)
+#			self.top_menus.remove(self.top_menus.find(top_menu))
 
 
 func display_all_objects():
@@ -382,9 +389,9 @@ func refresh():
 		
 	# Note: the first left backer should be disabled if we cannot get back
 	if Player.have_previous_chapters():
-		$"Background/Left-Back".set_enabled()
+		$"Background/Left-Back".is_disabled = true
 	else:
-		$"Background/Left-Back".set_disabled()
+		$"Background/Left-Back".is_disabled = false
 	
 	
 	# Page2: update all chapters
@@ -575,7 +582,9 @@ func update_page_in_top_menus(current_page):
 
 
 func set_camera_to_pos(x):
-	self.camera.position.x = x
+	pass
+	#TODO linklinsse
+	#self.camera.position.x = x
 
 
 func jump_to_chapter_1():

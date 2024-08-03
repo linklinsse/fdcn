@@ -1,6 +1,6 @@
 extends Node
 
-var chapter_data_cls = preload('res://chapter_data.gd')
+var chapter_data_cls = preload("res://scripts/chapter_data.gd")
 
 var _current_book_number = 1  # Which book is currently selected
 var all_nodes = {}

@@ -1,6 +1,6 @@
 extends Node
 
-onready var Item = preload('res://Item.tscn')
+onready var Item = preload("res://scenes/Item.tscn")
 
 var _main = null
 var need_force_display_options = false   # if we did guess, show options to show it

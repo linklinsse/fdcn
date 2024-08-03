@@ -1,0 +1,288 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/pages/lore/scenes/LoreEntry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/utils/right_nexter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/common/toolbar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/utils/navigation_arrow.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_bottom = 2
+
+[node name="Lore" type="Panel"]
+margin_left = 1777.0
+margin_top = 4.0
+margin_right = 2328.0
+margin_bottom = 1050.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+
+[node name="Right-Next" parent="." instance=ExtResource( 6 )]
+anchor_left = 100.0
+anchor_right = 100.0
+margin_left = 559.0
+margin_top = 28.0
+margin_right = 1534.0
+margin_bottom = 70.0
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="top_menu" parent="." instance=ExtResource( 7 )]
+margin_left = -1.0
+margin_top = -4.0
+margin_right = 559.0
+margin_bottom = 38.0
+custom_styles/panel = SubResource( 8 )
+script = null
+
+[node name="Lore" type="Panel" parent="."]
+margin_left = 58.0
+margin_top = 51.0
+margin_right = 502.0
+margin_bottom = 1019.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 2 )
+
+[node name="Header" type="Panel" parent="Lore"]
+margin_right = 442.0
+margin_bottom = 42.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Lore/Header"]
+margin_left = 121.524
+margin_top = 5.00259
+margin_right = 305.524
+margin_bottom = 36.0026
+custom_fonts/font = ExtResource( 1 )
+text = "Le lore"
+
+[node name="LinkButton" type="LinkButton" parent="Lore/Header"]
+margin_left = 262.0
+margin_top = 15.0
+margin_right = 437.0
+margin_bottom = 29.0
+focus_mode = 2
+text = "Plus de LORE? Le WIKI!"
+
+[node name="VScrollBar" type="ScrollContainer" parent="Lore"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 42.0
+margin_bottom = -40.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="persos" type="VBoxContainer" parent="Lore/VScrollBar"]
+margin_right = 432.0
+margin_bottom = 3209.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BillyGuerrier" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_right = 432.0
+custom_styles/panel = SubResource( 9 )
+titre = "Billy Guerrier"
+
+[node name="BillyPaysan" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 189.0
+margin_right = 432.0
+margin_bottom = 374.0
+custom_styles/panel = SubResource( 9 )
+entry_name = "paysan"
+titre = "Billy Paysan"
+
+[node name="BillyPrudent" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 378.0
+margin_right = 432.0
+margin_bottom = 563.0
+custom_styles/panel = SubResource( 9 )
+entry_name = "prudent"
+titre = "Billy Prudent"
+
+[node name="BillyDebrouillard" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 567.0
+margin_right = 432.0
+margin_bottom = 752.0
+custom_styles/panel = SubResource( 9 )
+entry_name = "debrouillard"
+titre = "Billy Debrouillard"
+
+[node name="DieuxAtella" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 756.0
+margin_right = 432.0
+margin_bottom = 941.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "atella"
+titre = "Atella"
+
+[node name="DieuxBlathnat" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 945.0
+margin_right = 432.0
+margin_bottom = 1130.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "blathnat"
+titre = "Blathnat"
+
+[node name="DieuxEdire" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 1134.0
+margin_right = 432.0
+margin_bottom = 1319.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "edire"
+titre = "Edire"
+
+[node name="DieuxMutra" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 1323.0
+margin_right = 432.0
+margin_bottom = 1508.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "mutra"
+titre = "Mutra"
+
+[node name="DieuxMelene" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 1512.0
+margin_right = 432.0
+margin_bottom = 1697.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "melene"
+titre = "Melene"
+
+[node name="DieuxNeit" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 1701.0
+margin_right = 432.0
+margin_bottom = 1886.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "neit"
+titre = "Neit"
+
+[node name="DieuxNyses" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 1890.0
+margin_right = 432.0
+margin_bottom = 2075.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "nyses"
+titre = "Nyses"
+
+[node name="DieuxPhumtar" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 2079.0
+margin_right = 432.0
+margin_bottom = 2264.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "phumtar"
+titre = "Phumtar"
+
+[node name="DieuxRunir" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 2268.0
+margin_right = 432.0
+margin_bottom = 2453.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "runir"
+titre = "Runir"
+
+[node name="DieuxVetherr" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 2457.0
+margin_right = 432.0
+margin_bottom = 2642.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "vetherr"
+titre = "Vetherr"
+
+[node name="DieuxVirilus" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 2646.0
+margin_right = 432.0
+margin_bottom = 2831.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "virilus"
+titre = "Virilus"
+
+[node name="DieuxYtia" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 2835.0
+margin_right = 432.0
+margin_bottom = 3020.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "ytia"
+titre = "Ytia"
+
+[node name="DieuxZarkan" parent="Lore/VScrollBar/persos" instance=ExtResource( 2 )]
+margin_top = 3024.0
+margin_right = 432.0
+margin_bottom = 3209.0
+custom_styles/panel = SubResource( 9 )
+type_entry = "dieux"
+entry_name = "zarkan"
+titre = "Zarkan"
+
+[node name="LoreAuthor" type="Panel" parent="Lore"]
+margin_top = 928.601
+margin_right = 442.0
+margin_bottom = 970.601
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Lore/LoreAuthor"]
+margin_left = 12.31
+margin_top = 4.00003
+margin_right = 196.31
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 1 )
+text = "Auteur des images:"
+
+[node name="LinkButton" type="LinkButton" parent="Lore/LoreAuthor"]
+margin_left = 294.31
+margin_top = 3.00002
+margin_right = 384.31
+margin_bottom = 34.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Draziel"
+
+[node name="Left-Back" parent="." instance=ExtResource( 8 )]
+anchor_left = 100.0
+anchor_right = 100.0
+margin_left = -0.753906
+margin_top = 1011.12
+margin_right = 971.246
+margin_bottom = 1053.12
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( -548, 32 )
+mouse_filter = 1
+txt = "Les succès"
+dest = "success"

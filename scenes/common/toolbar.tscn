@@ -1,24 +1,24 @@
 [gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://images/success.png" type="Texture" id=1]
-[ext_resource path="res://fonts/amon_font_small.tres" type="DynamicFont" id=2]
-[ext_resource path="res://images/fork.png" type="Texture" id=3]
-[ext_resource path="res://images/backpack.png" type="Texture" id=4]
-[ext_resource path="res://images/caution.png" type="Texture" id=5]
-[ext_resource path="res://images/sword.png" type="Texture" id=6]
-[ext_resource path="res://images/pantheon.png" type="Texture" id=7]
-[ext_resource path="res://images/chemin.png" type="Texture" id=8]
-[ext_resource path="res://images/chapter.png" type="Texture" id=9]
-[ext_resource path="res://top_menu.gd" type="Script" id=10]
-[ext_resource path="res://images/items/backpack.svg" type="Texture" id=11]
-[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://images/options.png" type="Texture" id=13]
-[ext_resource path="res://images/fdcn_icon.png" type="Texture" id=14]
-[ext_resource path="res://images/cdsi_logo.png" type="Texture" id=15]
-[ext_resource path="res://images/cdsi_title.png" type="Texture" id=16]
-[ext_resource path="res://images/fdcn_title.png" type="Texture" id=17]
+[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://images/fork.png" type="Texture" id=2]
+[ext_resource path="res://images/fdcn_icon.png" type="Texture" id=3]
+[ext_resource path="res://images/options.png" type="Texture" id=4]
+[ext_resource path="res://images/pantheon.png" type="Texture" id=5]
+[ext_resource path="res://images/chapter.png" type="Texture" id=6]
+[ext_resource path="res://images/backpack.png" type="Texture" id=7]
+[ext_resource path="res://images/items/backpack.svg" type="Texture" id=8]
+[ext_resource path="res://images/chemin.png" type="Texture" id=9]
+[ext_resource path="res://images/caution.png" type="Texture" id=10]
+[ext_resource path="res://images/sword.png" type="Texture" id=11]
+[ext_resource path="res://images/success.png" type="Texture" id=12]
+[ext_resource path="res://images/cdsi_title.png" type="Texture" id=13]
+[ext_resource path="res://images/cdsi_logo.png" type="Texture" id=14]
+[ext_resource path="res://images/fdcn_title.png" type="Texture" id=15]
+[ext_resource path="res://fonts/amon_font_small.tres" type="DynamicFont" id=16]
+[ext_resource path="res://scenes/common/toolbar.gd" type="Script" id=17]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -38,7 +38,7 @@ bg_color = Color( 0.913725, 0.917647, 0.92549, 1 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 12
-font_data = ExtResource( 12 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.913725, 0.917647, 0.92549, 1 )
@@ -53,12 +53,11 @@ bg_color = Color( 0.913725, 0.917647, 0.92549, 1 )
 bg_color = Color( 0.913725, 0.917647, 0.92549, 1 )
 
 [node name="top_menu" type="Panel"]
-margin_left = 3.0
-margin_top = 9.0
-margin_right = 497.0
-margin_bottom = 51.0
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 10 )
+anchor_right = 1.0
+anchor_bottom = 0.039
+margin_bottom = -0.120003
+custom_styles/panel = SubResource( 12 )
+script = ExtResource( 17 )
 
 [node name="OptionsBtn" type="Panel" parent="."]
 margin_left = 4.55624
@@ -70,7 +69,7 @@ custom_styles/panel = SubResource( 3 )
 [node name="sprite" type="Sprite" parent="OptionsBtn"]
 position = Vector2( 18.8495, 18.2999 )
 scale = Vector2( 0.0734101, 0.0733971 )
-texture = ExtResource( 13 )
+texture = ExtResource( 4 )
 
 [node name="button" type="TextureButton" parent="OptionsBtn"]
 margin_left = -0.177032
@@ -95,12 +94,12 @@ custom_styles/panel = SubResource( 6 )
 [node name="logo" type="Sprite" parent="BookSelection/BookDisplayFdcn"]
 position = Vector2( 18.8931, 18.841 )
 scale = Vector2( 0.0664966, 0.0664849 )
-texture = ExtResource( 14 )
+texture = ExtResource( 3 )
 
 [node name="title" type="Sprite" parent="BookSelection/BookDisplayFdcn"]
 position = Vector2( 70.7305, 18.3244 )
 scale = Vector2( 0.20995, 0.209877 )
-texture = ExtResource( 17 )
+texture = ExtResource( 15 )
 
 [node name="BookDisplayCdsi" type="Panel" parent="BookSelection"]
 visible = false
@@ -113,12 +112,12 @@ custom_styles/panel = SubResource( 6 )
 [node name="logo" type="Sprite" parent="BookSelection/BookDisplayCdsi"]
 position = Vector2( 15.7305, 18.3244 )
 scale = Vector2( 0.122885, 0.122863 )
-texture = ExtResource( 15 )
+texture = ExtResource( 14 )
 
 [node name="title" type="Sprite" parent="BookSelection/BookDisplayCdsi"]
 position = Vector2( 70.7305, 18.3244 )
 scale = Vector2( 0.20995, 0.209877 )
-texture = ExtResource( 16 )
+texture = ExtResource( 13 )
 
 [node name="Pages" type="Panel" parent="."]
 visible = false
@@ -138,7 +137,7 @@ custom_styles/panel = SubResource( 3 )
 [node name="sprite" type="Sprite" parent="Pages/BlockMain"]
 position = Vector2( 18.8495, 18.2999 )
 scale = Vector2( 0.0734101, 0.0733971 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="button" type="TextureButton" parent="Pages/BlockMain"]
 margin_left = -0.177032
@@ -156,7 +155,7 @@ custom_styles/panel = SubResource( 4 )
 [node name="sprite" type="Sprite" parent="Pages/BlockChapitres"]
 position = Vector2( 19.9269, 19.1324 )
 scale = Vector2( 0.0616825, 0.0616715 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 
 [node name="button" type="TextureButton" parent="Pages/BlockChapitres"]
 margin_right = 37.0
@@ -172,7 +171,7 @@ custom_styles/panel = SubResource( 5 )
 [node name="sprite" type="Sprite" parent="Pages/BlockSuccess"]
 position = Vector2( 19.2058, 18.6945 )
 scale = Vector2( 0.0667377, 0.0667257 )
-texture = ExtResource( 1 )
+texture = ExtResource( 12 )
 
 [node name="button" type="TextureButton" parent="Pages/BlockSuccess"]
 margin_left = 0.418823
@@ -190,7 +189,7 @@ custom_styles/panel = SubResource( 6 )
 [node name="sprite" type="Sprite" parent="Pages/BlockLore"]
 position = Vector2( 18.8931, 18.841 )
 scale = Vector2( 0.0664966, 0.0664849 )
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
 [node name="button" type="TextureButton" parent="Pages/BlockLore"]
 margin_left = -0.873657
@@ -233,7 +232,7 @@ __meta__ = {
 [node name="sprite" type="Sprite" parent="Billys/BlockGuerrier"]
 position = Vector2( 18.3771, 18.301 )
 scale = Vector2( 0.0974027, 0.0973855 )
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
 
 [node name="button" type="TextureButton" parent="Billys/BlockGuerrier"]
 margin_left = -0.177032
@@ -258,7 +257,7 @@ __meta__ = {
 [node name="sprite" type="Sprite" parent="Billys/BlockPaysan"]
 position = Vector2( 17.5646, 18.338 )
 scale = Vector2( 0.214251, 0.214213 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="button" type="TextureButton" parent="Billys/BlockPaysan"]
 margin_right = 37.0
@@ -281,7 +280,7 @@ __meta__ = {
 [node name="sprite" type="Sprite" parent="Billys/BlockPrudent"]
 position = Vector2( 18.812, 18.7755 )
 scale = Vector2( 0.116261, 0.11624 )
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="button" type="TextureButton" parent="Billys/BlockPrudent"]
 margin_left = 0.418823
@@ -306,7 +305,7 @@ __meta__ = {
 [node name="sprite" type="Sprite" parent="Billys/BlockDebrouillard"]
 position = Vector2( 18.4995, 17.5037 )
 scale = Vector2( 0.097564, 0.0975468 )
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="button" type="TextureButton" parent="Billys/BlockDebrouillard"]
 margin_left = -0.873657
@@ -327,7 +326,7 @@ custom_styles/panel = SubResource( 11 )
 [node name="sprite" type="Sprite" parent="Billys/BlockOptions"]
 position = Vector2( 17.9156, 18.7244 )
 scale = Vector2( 0.367587, 0.367522 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
 
 [node name="button" type="TextureButton" parent="Billys/BlockOptions"]
 margin_left = -0.165741
@@ -344,7 +343,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 0
 custom_constants/shadow_as_outline = 0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 16 )
 text = "Spoils"
 
 [node name="SpoilButton" type="CheckButton" parent="."]
@@ -365,7 +364,7 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
 custom_constants/shadow_offset_y = 0
 custom_constants/shadow_as_outline = 0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 16 )
 text = "Voix du Lennon"
 
 [node name="SoundButton" type="CheckButton" parent="."]

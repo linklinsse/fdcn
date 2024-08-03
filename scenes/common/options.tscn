@@ -1,0 +1,706 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/backpack.png" type="Texture" id=4]
+[ext_resource path="res://images/billys/prudent.png" type="Texture" id=5]
+[ext_resource path="res://images/billys/debrouillard.png" type="Texture" id=6]
+[ext_resource path="res://images/billys/paysan.png" type="Texture" id=7]
+[ext_resource path="res://images/billys/guerrier.png" type="Texture" id=8]
+[ext_resource path="res://images/health.png" type="Texture" id=9]
+[ext_resource path="res://images/cdsi_book.jpg" type="Texture" id=10]
+[ext_resource path="res://images/fdcn_book.jpg" type="Texture" id=11]
+[ext_resource path="res://images/book_select.png" type="Texture" id=12]
+[ext_resource path="res://shaders/gray.gdshader" type="Shader" id=13]
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[sub_resource type="StyleBoxFlat" id=29]
+
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[sub_resource type="StyleBoxFlat" id=31]
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="ShaderMaterial" id=39]
+shader = ExtResource( 13 )
+shader_param/grayscale = false
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="ShaderMaterial" id=23]
+shader = ExtResource( 13 )
+shader_param/grayscale = false
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="ShaderMaterial" id=25]
+shader = ExtResource( 13 )
+shader_param/grayscale = false
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="ShaderMaterial" id=27]
+shader = ExtResource( 13 )
+shader_param/grayscale = false
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.752941, 1, 0.929412, 1 )
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=13]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 19
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="ShaderMaterial" id=37]
+shader = ExtResource( 13 )
+shader_param/grayscale = false
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = ExtResource( 13 )
+shader_param/grayscale = false
+
+[node name="Options" type="Panel"]
+visible = false
+margin_left = 5.0
+margin_top = 51.0
+margin_right = 553.0
+margin_bottom = 1028.0
+custom_styles/panel = SubResource( 35 )
+
+[node name="Header" type="Panel" parent="."]
+margin_right = 93.0
+margin_bottom = 986.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 17 )
+
+[node name="TabEquipement" type="Panel" parent="Header"]
+margin_right = 92.0
+margin_bottom = 194.0
+custom_styles/panel = SubResource( 29 )
+
+[node name="EquipementSprite" type="Sprite" parent="Header/TabEquipement"]
+position = Vector2( 47, 106 )
+scale = Vector2( 0.307692, 0.292169 )
+texture = ExtResource( 4 )
+
+[node name="button" type="TextureButton" parent="Header/TabEquipement"]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 89.0
+margin_bottom = 194.0
+
+[node name="TabStats" type="Panel" parent="Header"]
+margin_top = 198.0
+margin_right = 91.0
+margin_bottom = 434.0
+custom_styles/panel = SubResource( 30 )
+
+[node name="StatsSprite" type="Sprite" parent="Header/TabStats"]
+position = Vector2( 47, 105 )
+scale = Vector2( 0.715606, 0.871041 )
+texture = ExtResource( 9 )
+
+[node name="button" type="TextureButton" parent="Header/TabStats"]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 89.0
+margin_bottom = 235.0
+
+[node name="TabSelectBook" type="Panel" parent="Header"]
+margin_top = 439.0
+margin_right = 92.0
+margin_bottom = 633.0
+custom_styles/panel = SubResource( 31 )
+
+[node name="SelectBookSprite" type="Sprite" parent="Header/TabSelectBook"]
+position = Vector2( 45, 99 )
+scale = Vector2( 0.158966, 0.199014 )
+texture = ExtResource( 12 )
+
+[node name="button" type="TextureButton" parent="Header/TabSelectBook"]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 89.0
+margin_bottom = 194.0
+
+[node name="Equipement" type="Panel" parent="."]
+margin_left = 95.0
+margin_right = 547.0
+margin_bottom = 981.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 32 )
+
+[node name="BlockGuerrier" type="Panel" parent="Equipement"]
+margin_left = -2.0
+margin_right = 159.0
+margin_bottom = 451.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/panel = SubResource( 21 )
+
+[node name="sprite" type="Sprite" parent="Equipement/BlockGuerrier"]
+material = SubResource( 39 )
+position = Vector2( 74.416, 198.723 )
+scale = Vector2( 0.822243, 0.908078 )
+texture = ExtResource( 8 )
+
+[node name="button" type="TextureButton" parent="Equipement/BlockGuerrier"]
+visible = false
+margin_left = -1.0
+margin_right = 162.0
+margin_bottom = 443.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockPaysan" type="Panel" parent="Equipement"]
+margin_left = 113.0
+margin_top = 4.0
+margin_right = 280.0
+margin_bottom = 400.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/panel = SubResource( 22 )
+
+[node name="sprite" type="Sprite" parent="Equipement/BlockPaysan"]
+material = SubResource( 23 )
+position = Vector2( 64.0526, 194.537 )
+scale = Vector2( 0.864614, 0.907562 )
+texture = ExtResource( 7 )
+
+[node name="button" type="TextureButton" parent="Equipement/BlockPaysan"]
+visible = false
+margin_left = 9.0
+margin_top = 6.0
+margin_right = 187.0
+margin_bottom = 448.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockPrudent" type="Panel" parent="Equipement"]
+margin_left = 232.0
+margin_top = 2.00001
+margin_right = 386.0
+margin_bottom = 407.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/panel = SubResource( 24 )
+
+[node name="sprite" type="Sprite" parent="Equipement/BlockPrudent"]
+material = SubResource( 25 )
+position = Vector2( 51.1954, 199.538 )
+scale = Vector2( 0.8289, 0.917414 )
+texture = ExtResource( 5 )
+
+[node name="button" type="TextureButton" parent="Equipement/BlockPrudent"]
+visible = false
+margin_left = 9.0
+margin_top = 3.0
+margin_right = 188.0
+margin_bottom = 447.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockDebrouillard" type="Panel" parent="Equipement"]
+margin_left = 328.0
+margin_top = 10.0
+margin_right = 504.0
+margin_bottom = 415.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="Equipement/BlockDebrouillard"]
+material = SubResource( 27 )
+position = Vector2( 82.4091, 187.981 )
+scale = Vector2( 0.836486, 0.923395 )
+texture = ExtResource( 6 )
+
+[node name="button" type="TextureButton" parent="Equipement/BlockDebrouillard"]
+visible = false
+margin_left = -4.0
+margin_top = 6.0
+margin_right = 201.0
+margin_bottom = 453.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemsCont" type="ScrollContainer" parent="Equipement"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 288.0
+margin_right = -1.0
+margin_bottom = 5.0
+
+[node name="Items" type="VBoxContainer" parent="Equipement/ItemsCont"]
+margin_right = 450.0
+margin_bottom = 104.0
+
+[node name="Panel" parent="Equipement/ItemsCont/Items" instance=ExtResource( 3 )]
+custom_styles/panel = SubResource( 1 )
+
+[node name="Panel2" parent="Equipement/ItemsCont/Items" instance=ExtResource( 3 )]
+margin_top = 54.0
+margin_bottom = 104.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Stats" type="Panel" parent="."]
+visible = false
+margin_left = 92.0
+margin_top = 41.0
+margin_right = 547.0
+margin_bottom = 981.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 33 )
+
+[node name="WarningText" type="Label" parent="Stats"]
+margin_left = 26.0
+margin_top = -22.0
+margin_right = 353.0
+margin_bottom = 8.99951
+custom_colors/font_color = Color( 1, 0.419608, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Attention: fonctionalité non finie, bugs possibles :)"
+align = 1
+
+[node name="PlayerPvLabel" type="Label" parent="Stats"]
+margin_left = 55.3231
+margin_top = 95.3025
+margin_right = 137.323
+margin_bottom = 126.302
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "PV:"
+align = 1
+
+[node name="PlayerPvValue" type="Label" parent="Stats"]
+margin_left = 110.221
+margin_top = 92.4763
+margin_right = 192.221
+margin_bottom = 123.476
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerEndLabel" type="Label" parent="Stats"]
+margin_left = 55.3231
+margin_top = 63.8044
+margin_right = 137.323
+margin_bottom = 94.8039
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Endurance:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerEndValue" type="Label" parent="Stats"]
+margin_left = 110.221
+margin_top = 60.9783
+margin_right = 192.221
+margin_bottom = 91.978
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerEndValueDetail" type="Label" parent="Stats"]
+margin_left = 170.289
+margin_top = 62.3131
+margin_right = 252.289
+margin_bottom = 93.3128
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHabLabel" type="Label" parent="Stats"]
+margin_left = 54.0632
+margin_top = 31.0465
+margin_right = 136.063
+margin_bottom = 62.046
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Habilité:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHabValue" type="Label" parent="Stats"]
+margin_left = 108.961
+margin_top = 28.2203
+margin_right = 190.961
+margin_bottom = 59.22
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHabValueDetail" type="Label" parent="Stats"]
+margin_left = 171.698
+margin_top = 28.2203
+margin_right = 253.698
+margin_bottom = 59.22
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAdrLabel" type="Label" parent="Stats"]
+margin_left = 56.583
+margin_top = 135.62
+margin_right = 138.583
+margin_bottom = 166.619
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Adresse:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAdrValue" type="Label" parent="Stats"]
+margin_left = 111.481
+margin_top = 132.794
+margin_right = 193.481
+margin_bottom = 163.793
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAdrValueDetail" type="Label" parent="Stats"]
+margin_left = 168.879
+margin_top = 134.129
+margin_right = 250.879
+margin_bottom = 165.128
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerChaLabel" type="Label" parent="Stats"]
+margin_left = 56.583
+margin_top = 175.937
+margin_right = 138.583
+margin_bottom = 206.937
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Chance:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerChaValue" type="Label" parent="Stats"]
+margin_left = 111.481
+margin_top = 173.111
+margin_right = 193.481
+margin_bottom = 204.111
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerChaValueDetail" type="Label" parent="Stats"]
+margin_left = 168.879
+margin_top = 173.111
+margin_right = 250.879
+margin_bottom = 204.111
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCritLabel" type="Label" parent="Stats"]
+margin_left = 55.3231
+margin_top = 222.555
+margin_right = 137.323
+margin_bottom = 253.554
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Critique:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCritValue" type="Label" parent="Stats"]
+margin_left = 110.221
+margin_top = 219.728
+margin_right = 192.221
+margin_bottom = 250.728
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerCritValueDetail" type="Label" parent="Stats"]
+margin_left = 166.284
+margin_top = 219.728
+margin_right = 248.284
+margin_bottom = 250.728
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDegLabel" type="Label" parent="Stats"]
+margin_left = 57.8429
+margin_top = 269.172
+margin_right = 139.843
+margin_bottom = 300.171
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Dégâts:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDegValue" type="Label" parent="Stats"]
+margin_left = 112.741
+margin_top = 266.345
+margin_right = 194.741
+margin_bottom = 297.345
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDegValueDetail" type="Label" parent="Stats"]
+margin_left = 164.8
+margin_top = 265.01
+margin_right = 246.8
+margin_bottom = 296.01
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerArmLabel" type="Label" parent="Stats"]
+margin_left = 56.583
+margin_top = 305.709
+margin_right = 138.583
+margin_bottom = 336.709
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Armure:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerArmValue" type="Label" parent="Stats"]
+margin_left = 111.481
+margin_top = 302.883
+margin_right = 193.481
+margin_bottom = 333.883
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerArmValueDetail" type="Label" parent="Stats"]
+margin_left = 166.209
+margin_top = 301.548
+margin_right = 248.209
+margin_bottom = 332.548
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BookSelect" type="Panel" parent="."]
+visible = false
+margin_left = 95.0
+margin_top = 1.0
+margin_right = 550.0
+margin_bottom = 941.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 34 )
+
+[node name="BoolSelectFcdn" type="Panel" parent="BookSelect"]
+margin_left = 74.0
+margin_top = 89.0
+margin_right = 505.0
+margin_bottom = 630.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/panel = SubResource( 36 )
+
+[node name="sprite" type="Sprite" parent="BookSelect/BoolSelectFcdn"]
+material = SubResource( 37 )
+position = Vector2( 213.571, 265.736 )
+scale = Vector2( 0.184632, 0.217434 )
+texture = ExtResource( 11 )
+
+[node name="button" type="TextureButton" parent="BookSelect/BoolSelectFcdn"]
+margin_left = 26.0
+margin_top = -27.0
+margin_right = 400.0
+margin_bottom = 560.0
+
+[node name="BoolSelectCdsi" type="Panel" parent="BookSelect"]
+margin_left = 72.0
+margin_top = 508.0
+margin_right = 503.0
+margin_bottom = 1049.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_styles/panel = SubResource( 36 )
+
+[node name="sprite" type="Sprite" parent="BookSelect/BoolSelectCdsi"]
+material = SubResource( 38 )
+position = Vector2( 221.423, 298.373 )
+scale = Vector2( 0.742878, 0.856293 )
+texture = ExtResource( 10 )
+
+[node name="button" type="TextureButton" parent="BookSelect/BoolSelectCdsi"]
+margin_left = 33.0
+margin_top = 21.0
+margin_right = 406.0
+margin_bottom = 573.0

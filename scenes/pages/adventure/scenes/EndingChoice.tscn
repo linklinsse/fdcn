@@ -1,17 +1,17 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://EndingChoice.gd" type="Script" id=1]
+[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://images/new_player.png" type="Texture" id=4]
-[ext_resource path="res://images/endings/SOUFLE.png" type="Texture" id=5]
+[ext_resource path="res://scenes/pages/adventure/scenes/EndingChoice.gd" type="Script" id=3]
+[ext_resource path="res://images/endings/SOUFLE.png" type="Texture" id=4]
+[ext_resource path="res://images/new_player.png" type="Texture" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_bottom = 2
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
@@ -22,7 +22,7 @@ corner_radius_bottom_left = 2
 
 [sub_resource type="DynamicFont" id=4]
 size = 40
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
@@ -38,7 +38,7 @@ rect_min_size = Vector2( 0, 260 )
 rect_pivot_offset = Vector2( -103.663, -52.0355 )
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -144,11 +144,11 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="nouveau_billy"]
 position = Vector2( 71.5449, 28.0304 )
 scale = Vector2( 0.0996552, 0.0996552 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Icone" type="Sprite" parent="."]
 position = Vector2( 366.429, 75.1195 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [connection signal="pressed" from="click/Button" to="." method="_on_oups_pressed"]
 [connection signal="pressed" from="nouveau_billy/Button" to="." method="_on_bouton_billy_pressed"]

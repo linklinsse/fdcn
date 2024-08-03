@@ -1,0 +1,878 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/pages/adventure/scenes/ChapterChoice.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/pages/adventure/scenes/bread.tscn" type="PackedScene" id=4]
+[ext_resource path="res://images/dice/6-r.svg" type="Texture" id=5]
+[ext_resource path="res://images/barbare_icon_white.png" type="Texture" id=6]
+[ext_resource path="res://images/anim-phumtar-2.png" type="Texture" id=7]
+[ext_resource path="res://images/anim-phumtar-1.png" type="Texture" id=8]
+[ext_resource path="res://images/bar_fill.png" type="Texture" id=9]
+[ext_resource path="res://images/bar_background.png" type="Texture" id=10]
+[ext_resource path="res://images/fdcn_icon_transparent.png" type="Texture" id=11]
+[ext_resource path="res://images/fleche_bas_droite.png" type="Texture" id=12]
+[ext_resource path="res://scenes/pages/adventure/scenes/gauge.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/utils/navigation_arrow.tscn" type="PackedScene" id=16]
+[ext_resource path="res://images/fight.svg" type="Texture" id=17]
+[ext_resource path="res://fonts/amon_font_small.tres" type="DynamicFont" id=18]
+[ext_resource path="res://images/blue-tick.png" type="Texture" id=19]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_top = 3
+border_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.913725, 0.917647, 0.92549, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 19
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 16.0
+} ]
+
+[node name="Background" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+
+[node name="Left-Back" parent="." instance=ExtResource( 16 )]
+__meta__ = {
+"_edit_use_anchors_": true
+}
+text = "chapitre précédent"
+is_disabled = true
+
+[node name="GlobalCompletion" type="Panel" parent="."]
+margin_left = 112.0
+margin_top = 128.0
+margin_right = 301.0
+margin_bottom = 310.001
+mouse_filter = 1
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="GlobalCompletion"]
+margin_right = 188.0
+margin_bottom = 42.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GlobalCompletion/Header"]
+margin_left = 48.0997
+margin_top = 4.0547
+margin_right = 155.1
+margin_bottom = 35.0547
+custom_fonts/font = ExtResource( 2 )
+text = "Completé"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fdcn" type="Sprite" parent="GlobalCompletion/Header"]
+position = Vector2( 22.2236, 20.9834 )
+scale = Vector2( 0.103378, 0.0980473 )
+texture = ExtResource( 11 )
+
+[node name="Gauge" parent="GlobalCompletion" instance=ExtResource( 15 )]
+position = Vector2( 88.3884, 97.9343 )
+
+[node name="footnode" type="Label" parent="GlobalCompletion"]
+margin_left = 142.403
+margin_top = 164.985
+margin_right = 185.403
+margin_bottom = 178.985
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+text = "X/606"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Position" type="Panel" parent="."]
+margin_left = 389.0
+margin_top = 120.0
+margin_right = 630.0
+margin_bottom = 305.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 2 )
+
+[node name="Header" type="Panel" parent="Position"]
+margin_right = 241.0
+margin_bottom = 42.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Position/Header"]
+margin_left = 85.8616
+margin_top = 3.68015
+margin_right = 167.862
+margin_bottom = 34.6801
+custom_fonts/font = ExtResource( 2 )
+text = "Position"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelActe" type="Label" parent="Position"]
+margin_left = 45.2576
+margin_top = 47.7458
+margin_right = 115.258
+margin_bottom = 61.7458
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+text = "Acte"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Acte" type="Label" parent="Position"]
+margin_left = 45.0
+margin_top = 61.4703
+margin_right = 207.0
+margin_bottom = 92.4703
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 2 )
+text = "XXX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fill_bar" type="TextureProgress" parent="Position"]
+margin_left = 27.7206
+margin_top = 51.0676
+margin_right = 37.7206
+margin_bottom = 91.0676
+rect_scale = Vector2( 1, 0.839999 )
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fill_par_pct" type="Label" parent="Position"]
+margin_left = 5.0
+margin_top = 72.2054
+margin_right = 28.0
+margin_bottom = 86.2054
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelArc" type="Label" parent="Position"]
+margin_left = 73.4753
+margin_top = 92.7138
+margin_right = 143.476
+margin_bottom = 106.714
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+text = "Arc"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arc" type="Label" parent="Position"]
+margin_left = 73.2177
+margin_top = 106.438
+margin_right = 235.218
+margin_bottom = 137.438
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 2 )
+text = "XXX"
+
+[node name="fleche_arc" type="Sprite" parent="Position"]
+position = Vector2( 41.105, 102.211 )
+scale = Vector2( 0.184088, 0.184088 )
+texture = ExtResource( 12 )
+
+[node name="fill_bar_arc" type="TextureProgress" parent="Position"]
+margin_left = 55.9383
+margin_top = 96.0356
+margin_right = 65.9383
+margin_bottom = 136.036
+rect_scale = Vector2( 1, 0.839999 )
+texture_under = ExtResource( 10 )
+texture_progress = ExtResource( 9 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fill_bar_arc_pct" type="Label" parent="Position"]
+margin_left = 33.2177
+margin_top = 117.173
+margin_right = 56.2177
+margin_bottom = 131.173
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelChapitreSmall" type="Label" parent="Position"]
+margin_left = 165.822
+margin_top = 137.314
+margin_right = 235.822
+margin_bottom = 151.314
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+text = "Chapitre"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumeroChapitreSmall" type="Label" parent="Position"]
+margin_left = 165.898
+margin_top = 147.842
+margin_right = 212.898
+margin_bottom = 178.842
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 2 )
+text = "XXX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelChapitreBig" type="Label" parent="Position"]
+visible = false
+margin_left = 134.459
+margin_top = 102.699
+margin_right = 204.459
+margin_bottom = 116.699
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 18 )
+text = "Chapitre"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumeroChapitreBig" type="Label" parent="Position"]
+visible = false
+margin_left = 132.754
+margin_top = 111.445
+margin_right = 237.754
+margin_bottom = 187.445
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 4 )
+text = "XXX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dreadcumb" type="Panel" parent="."]
+margin_left = 112.0
+margin_top = 344.0
+margin_right = 557.0
+margin_bottom = 426.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="Dreadcumb"]
+margin_right = 445.0
+margin_bottom = 42.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dreadcumb/Header"]
+margin_left = 180.576
+margin_top = 3.04227
+margin_right = 253.576
+margin_bottom = 34.0423
+custom_fonts/font = ExtResource( 2 )
+text = "Avancé"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="breads" type="HBoxContainer" parent="Dreadcumb"]
+margin_left = 0.530327
+margin_top = 42.0728
+margin_right = 144.53
+margin_bottom = 42.0728
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bread" parent="Dreadcumb/breads" instance=ExtResource( 4 )]
+margin_right = 70.0
+margin_bottom = 0.0
+
+[node name="bread2" parent="Dreadcumb/breads" instance=ExtResource( 4 )]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 0.0
+
+[node name="Next" type="Panel" parent="."]
+margin_left = 111.0
+margin_top = 432.0
+margin_right = 556.0
+margin_bottom = 1066.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Panel" parent="Next"]
+margin_right = 445.0
+margin_bottom = 42.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Next/Header"]
+margin_left = 189.601
+margin_top = 5.00259
+margin_right = 259.601
+margin_bottom = 36.0026
+custom_fonts/font = ExtResource( 2 )
+text = "Choix"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Next"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 43.0
+margin_bottom = -17.0
+mouse_filter = 1
+
+[node name="Choices" type="VBoxContainer" parent="Next/ScrollContainer"]
+margin_right = 445.0
+margin_bottom = 574.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChapterChoice" parent="Next/ScrollContainer/Choices" instance=ExtResource( 3 )]
+margin_right = 445.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="ChapterChoice2" parent="Next/ScrollContainer/Choices" instance=ExtResource( 3 )]
+margin_top = 79.0
+margin_right = 445.0
+margin_bottom = 154.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="Combat" type="Panel" parent="."]
+visible = false
+margin_left = 58.0
+margin_top = 376.0
+margin_right = 504.0
+margin_bottom = 1012.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 10 )
+
+[node name="IWin" type="Panel" parent="Combat"]
+margin_left = 143.0
+margin_top = 520.0
+margin_right = 283.0
+margin_bottom = 605.0
+custom_styles/panel = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tick" type="Sprite" parent="Combat/IWin"]
+position = Vector2( 74.7039, 41.7168 )
+scale = Vector2( 0.0922094, 0.0922094 )
+texture = ExtResource( 19 )
+
+[node name="button" type="TextureButton" parent="Combat/IWin"]
+margin_left = -1.0
+margin_top = -2.0
+margin_right = 138.0
+margin_bottom = 87.0
+
+[node name="Header" type="Panel" parent="Combat"]
+margin_left = 0.0594482
+margin_top = 0.179749
+margin_right = 445.059
+margin_bottom = 42.1797
+mouse_filter = 1
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Combat/Header"]
+margin_left = 189.601
+margin_top = 5.00259
+margin_right = 259.601
+margin_bottom = 36.0026
+custom_fonts/font = ExtResource( 2 )
+text = "Combat"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icone" type="Sprite" parent="Combat"]
+position = Vector2( 42.3232, 83.9219 )
+scale = Vector2( 0.0226782, 0.0226782 )
+texture = ExtResource( 17 )
+
+[node name="Nom" type="Label" parent="Combat"]
+margin_left = 97.0
+margin_top = 46.0
+margin_right = 373.0
+margin_bottom = 77.0
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 2 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerLabel" type="Label" parent="Combat"]
+margin_left = 62.0932
+margin_top = 90.1375
+margin_right = 144.093
+margin_bottom = 121.137
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Billy"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerPvLabel" type="Label" parent="Combat"]
+margin_left = 54.7972
+margin_top = 158.046
+margin_right = 136.797
+margin_bottom = 189.046
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "PV:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerPvValue" type="Label" parent="Combat"]
+margin_left = 109.695
+margin_top = 155.22
+margin_right = 191.695
+margin_bottom = 186.22
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHabLabel" type="Label" parent="Combat"]
+margin_left = 58.0991
+margin_top = 128.345
+margin_right = 140.099
+margin_bottom = 159.345
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Hab:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHabValue" type="Label" parent="Combat"]
+margin_left = 113.704
+margin_top = 129.054
+margin_right = 195.704
+margin_bottom = 160.054
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerArmLabel" type="Label" parent="Combat"]
+margin_left = 69.8583
+margin_top = 182.571
+margin_right = 151.859
+margin_bottom = 213.571
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Armure:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerArmValue" type="Label" parent="Combat"]
+margin_left = 114.857
+margin_top = 183.28
+margin_right = 196.857
+margin_bottom = 214.28
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDegLabel" type="Label" parent="Combat"]
+margin_left = 64.9085
+margin_top = 205.905
+margin_right = 146.909
+margin_bottom = 236.905
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Dégat:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDegValue" type="Label" parent="Combat"]
+margin_left = 113.443
+margin_top = 210.15
+margin_right = 195.443
+margin_bottom = 241.15
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiLabel" type="Label" parent="Combat"]
+margin_left = 319.698
+margin_top = 89.5762
+margin_right = 401.698
+margin_bottom = 120.576
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 13 )
+text = "Ennemi"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiPvLabel" type="Label" parent="Combat"]
+margin_left = 296.301
+margin_top = 153.992
+margin_right = 378.301
+margin_bottom = 184.992
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "PV:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiPvValue" type="Label" parent="Combat"]
+margin_left = 366.755
+margin_top = 151.873
+margin_right = 448.755
+margin_bottom = 182.873
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiHabLabel" type="Label" parent="Combat"]
+margin_left = 300.009
+margin_top = 128.3
+margin_right = 382.009
+margin_bottom = 159.3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Hab:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiHabValue" type="Label" parent="Combat"]
+margin_left = 366.755
+margin_top = 127.77
+margin_right = 448.755
+margin_bottom = 158.77
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiArmLabel" type="Label" parent="Combat"]
+margin_left = 311.134
+margin_top = 181.152
+margin_right = 393.134
+margin_bottom = 212.152
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Armure:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiArmValue" type="Label" parent="Combat"]
+margin_left = 366.755
+margin_top = 181.152
+margin_right = 448.755
+margin_bottom = 212.152
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiDegLabel" type="Label" parent="Combat"]
+margin_left = 306.366
+margin_top = 209.228
+margin_right = 388.366
+margin_bottom = 240.228
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Dégat:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnnemiDegValue" type="Label" parent="Combat"]
+margin_left = 368.345
+margin_top = 209.228
+margin_right = 450.345
+margin_bottom = 240.228
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dice" type="Panel" parent="Combat"]
+margin_left = 13.8042
+margin_top = 157.055
+margin_right = 70.8042
+margin_bottom = 214.055
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="Combat/dice"]
+position = Vector2( 27.5508, 27.4023 )
+scale = Vector2( 0.0770419, 0.0770419 )
+texture = ExtResource( 5 )
+
+[node name="button" type="TextureButton" parent="Combat/dice"]
+margin_right = 57.0
+margin_bottom = 58.0
+
+[node name="SpritePyro" type="Sprite" parent="Combat"]
+position = Vector2( 279.661, 189.214 )
+scale = Vector2( 0.300072, 0.300072 )
+texture = ExtResource( 6 )
+
+[node name="PyroHab" type="Label" parent="Combat"]
+margin_left = 183.054
+margin_top = 169.669
+margin_right = 265.054
+margin_bottom = 200.669
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 15 )
+text = "XXX"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotFinish" type="Label" parent="Combat"]
+margin_left = 18.805
+margin_top = 344.238
+margin_right = 255.805
+margin_bottom = 385.238
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = SubResource( 14 )
+text = "Les combats ne sont pas encore fini,
+ dev en cours ^^"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="phumtar" type="AnimatedSprite" parent="Combat"]
+position = Vector2( 349.257, 373.67 )
+scale = Vector2( 0.342538, 0.342538 )
+frames = SubResource( 17 )
+frame = 1
+playing = true
