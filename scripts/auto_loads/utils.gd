@@ -31,9 +31,11 @@ func load_json_file(path):
 
 
 func delete_children(node):
-	for n in node.get_children():
-		node.remove_child(n)
-		n.queue_free()
+	#TODO LINKLINSSE
+	if node:
+		for n in node.get_children():
+			node.remove_child(n)
+			n.queue_free()
 
 
 func roll_a_dice(minimum, maximum):

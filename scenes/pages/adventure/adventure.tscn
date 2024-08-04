@@ -73,7 +73,7 @@ animations = [ {
 "speed": 16.0
 } ]
 
-[node name="Background" type="Panel"]
+[node name="adventure" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1

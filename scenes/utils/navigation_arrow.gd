@@ -5,6 +5,7 @@ var disabled: bool = false
 export(bool) var is_disabled = false setget setFunction, getFunction
 export(bool) var mirror = false
 
+signal on_navigation_arrow_pressed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,4 +24,4 @@ func getFunction() -> bool:
 	return disabled
 
 func _on_button_pressed():
-	Swiper.go_to_page(self.dest)
+	emit_signal("on_navigation_arrow_pressed")

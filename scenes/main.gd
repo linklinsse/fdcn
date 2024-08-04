@@ -1,6 +1,5 @@
 extends Control
 
-
 var current_lines = []
 
 
@@ -20,8 +19,6 @@ var current_page = 'main'
 
 # The 4 top menus
 var top_menus = []
-
-
 
 func _ready():
 	# Register to Swiper for page move
@@ -201,14 +198,17 @@ func display_all_objects():
 	Utils.delete_children(item_stack)
 	print('Insert all objects')
 	for item in Player.all_items:
-		item_stack.add_child(item)
+		#TODO LINKLINSSE
+		if item_stack:
+			item_stack.add_child(item)
 	
 
 func refresh_all_objects():
 	var item_stack = $Options/Equipement/ItemsCont/Items
-	for item in item_stack.get_children():
-		item.refresh()
-		
+	#TODO linklinsse
+	if item_stack:
+		for item in item_stack.get_children():
+				item.refresh()
 
 func jump_to_chapter_100aine(centaine):
 	var all_choices = $Chapitres/AllChapters/VScrollBar/Choices
@@ -232,19 +232,21 @@ static func _sort_all_chapters(nb1, nb2):
 
 
 func insert_all_chapters():
-	var all_choices = $Chapitres/AllChapters/VScrollBar/Choices
-	Utils.delete_children(all_choices)
-	
-	var chapter_ids = BookData.get_all_nodes().keys()
-	chapter_ids.sort_custom(self, '_sort_all_chapters')
-	
-	for chapter_id in chapter_ids:
-		var chapter_data = BookData.get_node(chapter_id)
-		
-		var choice = Choice.instance()
-		choice.set_main(self)
-		choice.set_chapitre(chapter_data.get_id())
-		all_choices.add_child(choice)
+	#TODO LINKLINSSE
+	pass
+#	var all_choices = $Chapitres/AllChapters/VScrollBar/Choices
+#	Utils.delete_children(all_choices)
+#
+#	var chapter_ids = BookData.get_all_nodes().keys()
+#	chapter_ids.sort_custom(self, '_sort_all_chapters')
+#
+#	for chapter_id in chapter_ids:
+#		var chapter_data = BookData.get_node(chapter_id)
+#
+#		var choice = Choice.instance()
+#		choice.set_main(self)
+#		choice.set_chapitre(chapter_data.get_id())
+#		all_choices.add_child(choice)
 
 
 func _update_all_chapters():
@@ -255,69 +257,73 @@ func _update_all_chapters():
 
 
 func insert_all_success():
-	var all_success = $Succes/Success/VScrollBar/Success
-	Utils.delete_children(all_success)
-	
-	for success in BookData.get_all_success():
-		var s = Success.instance()
-		s.set_main(self)
-		s.set_from_success_object(success)
-		all_success.add_child(s)
+	#TODO LINKLINSSE
+	pass
+#	var all_success = $Succes/Success/VScrollBar/Success
+#	Utils.delete_children(all_success)
+#
+#	for success in BookData.get_all_success():
+#		var s = Success.instance()
+#		s.set_main(self)
+#		s.set_from_success_object(success)
+#		all_success.add_child(s)
 
 func insert_all_lore():
-	var all_lore = $Lore/Lore/VScrollBar/persos
-	Utils.delete_children(all_lore)
-	
-	var book_number = AppParameters.get_book_number()
-	
-	var refs = {
-		1: [
-			{'type': 'billys', 'name': 'guerrier', 'title':'Billy Guerrier'},
-			{'type': 'billys', 'name': 'paysan', 'title':'Billy Paysan'},
-			{'type': 'billys', 'name': 'prudent', 'title':'Billy Prudent'},
-			{'type': 'billys', 'name': 'debrouillard', 'title':'Billy Debrouillard'},
-			# Dieux
-			{'type': 'dieux', 'name': 'atella', 'title':'Atella'},
-			{'type': 'dieux', 'name': 'blathnat', 'title':'Blathnat'},
-			{'type': 'dieux', 'name': 'edire', 'title':'Edire'},
-			{'type': 'dieux', 'name': 'mutra', 'title':'Mutra'},
-			{'type': 'dieux', 'name': 'melene', 'title':'Melene'},
-			{'type': 'dieux', 'name': 'neit', 'title':'Neit'},
-			{'type': 'dieux', 'name': 'nyses', 'title':'Nyses'},
-			{'type': 'dieux', 'name': 'parodikos', 'title':'Parodikos'},
-			{'type': 'dieux', 'name': 'phumtar', 'title':'Phumtar'},
-			{'type': 'dieux', 'name': 'runir', 'title':'Runir'},
-			{'type': 'dieux', 'name': 'vetherr', 'title':'Vetherr'},
-			{'type': 'dieux', 'name': 'virilus', 'title':'Virilus'},
-			{'type': 'dieux', 'name': 'ytia', 'title':'Ytia'},
-			{'type': 'dieux', 'name': 'zarkan', 'title':'Zarkan'},
-		],
-		2: [
-			{'type': 'billys', 'name': 'guerrier', 'title':'Billy Guerrier'},
-			{'type': 'billys', 'name': 'paysan', 'title':'Billy Paysan'},
-			{'type': 'billys', 'name': 'prudent', 'title':'Billy Prudent'},
-			{'type': 'billys', 'name': 'debrouillard', 'title':'Billy Debrouillard'},
-			# Dieux
-			{'type': 'dieux', 'name': 'blathnat', 'title':'Blathnat'},
-			{'type': 'dieux', 'name': 'iotos', 'title':'Iotos'},
-			{'type': 'dieux', 'name': 'khalassa_et_ohassa', 'title':'khalassa et o\'hassa'},
-			{'type': 'dieux', 'name': 'nehdira', 'title':'Neh\'Dira'},
-			{'type': 'dieux', 'name': 'phumta', 'title':'Phumta'},
-			{'type': 'dieux', 'name': 'vetherr', 'title':'Vetherr'},
-			{'type': 'dieux', 'name': 'zarhkhan', 'title':'Zarhkhan'},
-			
-		],
-	}
-	var lst = refs.get(book_number)
-	
-	for _def in lst:
-		var s = LoreEntry.instance()
-		s.type_entry = _def['type']
-		s.entry_name = _def['name']
-		s.titre = _def['title']
-		s.book_number = book_number
-		
-		all_lore.add_child(s)
+	#TODO LINKLINSSE
+	pass
+#	var all_lore = $Lore/Lore/VScrollBar/persos
+#	Utils.delete_children(all_lore)
+#
+#	var book_number = AppParameters.get_book_number()
+#
+#	var refs = {
+#		1: [
+#			{'type': 'billys', 'name': 'guerrier', 'title':'Billy Guerrier'},
+#			{'type': 'billys', 'name': 'paysan', 'title':'Billy Paysan'},
+#			{'type': 'billys', 'name': 'prudent', 'title':'Billy Prudent'},
+#			{'type': 'billys', 'name': 'debrouillard', 'title':'Billy Debrouillard'},
+#			# Dieux
+#			{'type': 'dieux', 'name': 'atella', 'title':'Atella'},
+#			{'type': 'dieux', 'name': 'blathnat', 'title':'Blathnat'},
+#			{'type': 'dieux', 'name': 'edire', 'title':'Edire'},
+#			{'type': 'dieux', 'name': 'mutra', 'title':'Mutra'},
+#			{'type': 'dieux', 'name': 'melene', 'title':'Melene'},
+#			{'type': 'dieux', 'name': 'neit', 'title':'Neit'},
+#			{'type': 'dieux', 'name': 'nyses', 'title':'Nyses'},
+#			{'type': 'dieux', 'name': 'parodikos', 'title':'Parodikos'},
+#			{'type': 'dieux', 'name': 'phumtar', 'title':'Phumtar'},
+#			{'type': 'dieux', 'name': 'runir', 'title':'Runir'},
+#			{'type': 'dieux', 'name': 'vetherr', 'title':'Vetherr'},
+#			{'type': 'dieux', 'name': 'virilus', 'title':'Virilus'},
+#			{'type': 'dieux', 'name': 'ytia', 'title':'Ytia'},
+#			{'type': 'dieux', 'name': 'zarkan', 'title':'Zarkan'},
+#		],
+#		2: [
+#			{'type': 'billys', 'name': 'guerrier', 'title':'Billy Guerrier'},
+#			{'type': 'billys', 'name': 'paysan', 'title':'Billy Paysan'},
+#			{'type': 'billys', 'name': 'prudent', 'title':'Billy Prudent'},
+#			{'type': 'billys', 'name': 'debrouillard', 'title':'Billy Debrouillard'},
+#			# Dieux
+#			{'type': 'dieux', 'name': 'blathnat', 'title':'Blathnat'},
+#			{'type': 'dieux', 'name': 'iotos', 'title':'Iotos'},
+#			{'type': 'dieux', 'name': 'khalassa_et_ohassa', 'title':'khalassa et o\'hassa'},
+#			{'type': 'dieux', 'name': 'nehdira', 'title':'Neh\'Dira'},
+#			{'type': 'dieux', 'name': 'phumta', 'title':'Phumta'},
+#			{'type': 'dieux', 'name': 'vetherr', 'title':'Vetherr'},
+#			{'type': 'dieux', 'name': 'zarhkhan', 'title':'Zarhkhan'},
+#
+#		],
+#	}
+#	var lst = refs.get(book_number)
+#
+#	for _def in lst:
+#		var s = LoreEntry.instance()
+#		s.type_entry = _def['type']
+#		s.entry_name = _def['name']
+#		s.titre = _def['title']
+#		s.book_number = book_number
+#
+#		all_lore.add_child(s)
 
 
 
@@ -356,11 +362,15 @@ func _refresh_options():
 
 
 func __set_sprite_to_grey(sprite):
-	sprite.material.set_shader_param("grayscale", true)
+	#TODO LINKLINSSE
+	if sprite:
+		sprite.material.set_shader_param("grayscale", true)
 	
 	
 func __set_sprite_to_not_grey(sprite):
-	sprite.material.set_shader_param("grayscale", false)
+	#TODO LINKLINSSE
+	if sprite:
+		sprite.material.set_shader_param("grayscale", false)
 
 
 func _refresh_options_book_select_display():
@@ -371,164 +381,162 @@ func _refresh_options_book_select_display():
 	else:
 		self.__set_sprite_to_grey($Options/BookSelect/BoolSelectFcdn/sprite)
 		self.__set_sprite_to_not_grey($Options/BookSelect/BoolSelectCdsi/sprite)
-	
 
-	
-	
 func refresh():	
+	#TODO LINKLINSSE
+	pass
 	
-	# Update all options based on params
-	self._refresh_options()
-	
-	# Update the top menu with parameters
-	for top_menu in self.top_menus:
-		top_menu.set_spoils()	
-		top_menu.set_billy()
-		top_menu.set_sound()
-		top_menu.set_book_context()
-		
-	# Note: the first left backer should be disabled if we cannot get back
-	if Player.have_previous_chapters():
-		$"Background/Left-Back".is_disabled = true
-	else:
-		$"Background/Left-Back".is_disabled = false
-	
-	
-	# Page2: update all chapters
-	self._update_all_chapters()
-	
-	# Page 3: update success with spoils
-	self._update_all_success()
-	
-	# Update the % completion
-	var _nb_all_nodes = len(BookData.get_all_nodes())
-	var _nb_visited = Player.get_nb_all_time_seen()
-
-	var completion_foot_note = $Background/GlobalCompletion/footnode
-	completion_foot_note.text = (' %d /' % _nb_visited) + (' %d' % _nb_all_nodes)
-	
-	gauge.set_value(_nb_visited / float(_nb_all_nodes))
-	
-	# Now print my current node
-	var my_node = BookData.get_node(Player.get_current_node_id())
-	
-	# The act in progress
-	var _acte_label = $Background/Position/Acte
-	_acte_label.text = '%s' % my_node.get_chapter()
-	
-	var pct100 = BookData.get_acte_completion(Player.get_current_node_id(), Player.get_visited_nodes_all_times())
-	var fill_bar = $Background/Position/fill_bar
-	fill_bar.value = pct100 # % of the acte	is done
-	$Background/Position/fill_par_pct.text = '%3d%%' % pct100
-	
-	# The arc, if any
-	var _arc = my_node.get_arc()
-	if _arc != null:
-		# Compute how much of the sub_arc we have done
-		var pct100_sub_arc = BookData.get_sub_arc_completion(Player.get_current_node_id(), Player.get_visited_nodes_all_times())
-		
-		$Background/Position/fleche_arc.visible = true
-		$Background/Position/LabelArc.visible = true
-		$Background/Position/Arc.visible = true
-		$Background/Position/Arc.text = _arc
-		$Background/Position/fill_bar_arc.visible = true
-		$Background/Position/fill_bar_arc.value = pct100_sub_arc
-		$Background/Position/fill_bar_arc_pct.visible = true
-		$Background/Position/fill_bar_arc_pct.text = '%3d%%' % pct100_sub_arc
-		
-		# The SMALL chapter display
-		var _chapitre_label = $Background/Position/NumeroChapitreSmall
-		_chapitre_label.text = '%s' % my_node.get_id()
-		_chapitre_label.visible = true
-		$Background/Position/LabelChapitreSmall.visible = true
-		# Hide big one
-		$Background/Position/LabelChapitreBig.visible = false
-		$Background/Position/NumeroChapitreBig.visible = false
-	else:
-		$Background/Position/fleche_arc.visible = false
-		$Background/Position/LabelArc.visible = false
-		$Background/Position/Arc.visible = false
-		$Background/Position/fill_bar_arc.visible = false
-		$Background/Position/fill_bar_arc_pct.visible = false
-
-		# The BIG chapter display
-		var _chapitre_label = $Background/Position/NumeroChapitreBig
-		_chapitre_label.text = '%s' % my_node.get_id()
-		_chapitre_label.visible = true
-		$Background/Position/LabelChapitreBig.visible = true
-		# Hide big one
-		$Background/Position/LabelChapitreSmall.visible = false
-		$Background/Position/NumeroChapitreSmall.visible = false
-	
-	
-	var breads = $Background/Dreadcumb/breads
-	Utils.delete_children(breads)
-	
-		
-	var last_previous = Player.get_last_5_previous_visited_nodes()
-	#print('LAST 5: %s' % str(last_previous))
-	var _nb_lasts = len(last_previous)
-	var _i = 0
-	for previous in last_previous:
-		var bread = Bread.instance()
-		bread.set_chap_number(previous)
-		bread.set_main(self)
-		if _i == 0:
-			bread.set_first()
-		# If previous
-		
-		if _i == _nb_lasts - 2:
-			bread.set_previous()
-		elif _i == _nb_lasts - 1:
-			bread.set_current()
-		else:
-			bread.set_normal_color()
-		breads.add_child(bread)
-		_i = _i + 1
-		
-	
-	# And my sons
-	var sons_ids = my_node.get_sons()
-	# Maybe son sons are not secret, but the jump is
-	var secret_jumps = my_node.get_secret_jumps()
-	
-	# Clean choices
-	var choices = $Background/Next/ScrollContainer/Choices
-	Utils.delete_children(choices)
-	for son_id in sons_ids:		
-		# If the son is now ok to be shown, skip it
-		if !BookData.is_node_id_freely_showable(son_id, secret_jumps):
-			continue
-		
-		var son = BookData.get_node(son_id)
-		var choice = Choice.instance()
-		choice.set_main(self)
-		choice.update_from_son_node(son)
-		# Display it
-		choices.add_child(choice)
-		
-				
-	# Maybe we are an ending, then stack a EndingChoice with data
-	if my_node.get_ending():
-		var choice = EndingChoice.instance()
-		choice.set_main(self)
-		# Need an id for display:
-		# * is a success: take it
-		# * is not, take ending_id entry
-		var ending_id = my_node.get_success()
-		if ending_id == null:
-			ending_id = my_node.get_ending_id()
-		choice.set_ending_id(ending_id)
-		
-		# Text
-		var ending_txt = BookData.get_success_txt(ending_id)
-		if ending_txt == '':  # not a success
-			ending_txt = my_node.get_ending_txt()
-		choice.set_label(ending_txt)
-		choice.set_ending_type(my_node.get_ending_type())
-		
-		choices.add_child(choice)
-
+#	# Update all options based on params
+#	self._refresh_options()
+#
+#	# Update the top menu with parameters
+#	for top_menu in self.top_menus:
+#		top_menu.set_spoils()	
+#		top_menu.set_billy()
+#		top_menu.set_sound()
+#		top_menu.set_book_context()
+#
+#	# Note: the first left backer should be disabled if we cannot get back
+#	if Player.have_previous_chapters():
+#		$"Background/Left-Back".is_disabled = true
+#	else:
+#		$"Background/Left-Back".is_disabled = false
+#
+#
+#	# Page2: update all chapters
+#	self._update_all_chapters()
+#
+#	# Page 3: update success with spoils
+#	self._update_all_success()
+#
+#	# Update the % completion
+#	var _nb_all_nodes = len(BookData.get_all_nodes())
+#	var _nb_visited = Player.get_nb_all_time_seen()
+#
+#	var completion_foot_note = $Background/GlobalCompletion/footnode
+#	completion_foot_note.text = (' %d /' % _nb_visited) + (' %d' % _nb_all_nodes)
+#
+#	gauge.set_value(_nb_visited / float(_nb_all_nodes))
+#
+#	# Now print my current node
+#	var my_node = BookData.get_node(Player.get_current_node_id())
+#
+#	# The act in progress
+#	var _acte_label = $Background/Position/Acte
+#	_acte_label.text = '%s' % my_node.get_chapter()
+#
+#	var pct100 = BookData.get_acte_completion(Player.get_current_node_id(), Player.get_visited_nodes_all_times())
+#	var fill_bar = $Background/Position/fill_bar
+#	fill_bar.value = pct100 # % of the acte	is done
+#	$Background/Position/fill_par_pct.text = '%3d%%' % pct100
+#
+#	# The arc, if any
+#	var _arc = my_node.get_arc()
+#	if _arc != null:
+#		# Compute how much of the sub_arc we have done
+#		var pct100_sub_arc = BookData.get_sub_arc_completion(Player.get_current_node_id(), Player.get_visited_nodes_all_times())
+#
+#		$Background/Position/fleche_arc.visible = true
+#		$Background/Position/LabelArc.visible = true
+#		$Background/Position/Arc.visible = true
+#		$Background/Position/Arc.text = _arc
+#		$Background/Position/fill_bar_arc.visible = true
+#		$Background/Position/fill_bar_arc.value = pct100_sub_arc
+#		$Background/Position/fill_bar_arc_pct.visible = true
+#		$Background/Position/fill_bar_arc_pct.text = '%3d%%' % pct100_sub_arc
+#
+#		# The SMALL chapter display
+#		var _chapitre_label = $Background/Position/NumeroChapitreSmall
+#		_chapitre_label.text = '%s' % my_node.get_id()
+#		_chapitre_label.visible = true
+#		$Background/Position/LabelChapitreSmall.visible = true
+#		# Hide big one
+#		$Background/Position/LabelChapitreBig.visible = false
+#		$Background/Position/NumeroChapitreBig.visible = false
+#	else:
+#		$Background/Position/fleche_arc.visible = false
+#		$Background/Position/LabelArc.visible = false
+#		$Background/Position/Arc.visible = false
+#		$Background/Position/fill_bar_arc.visible = false
+#		$Background/Position/fill_bar_arc_pct.visible = false
+#
+#		# The BIG chapter display
+#		var _chapitre_label = $Background/Position/NumeroChapitreBig
+#		_chapitre_label.text = '%s' % my_node.get_id()
+#		_chapitre_label.visible = true
+#		$Background/Position/LabelChapitreBig.visible = true
+#		# Hide big one
+#		$Background/Position/LabelChapitreSmall.visible = false
+#		$Background/Position/NumeroChapitreSmall.visible = false
+#
+#
+#	var breads = $Background/Dreadcumb/breads
+#	Utils.delete_children(breads)
+#
+#
+#	var last_previous = Player.get_last_5_previous_visited_nodes()
+#	#print('LAST 5: %s' % str(last_previous))
+#	var _nb_lasts = len(last_previous)
+#	var _i = 0
+#	for previous in last_previous:
+#		var bread = Bread.instance()
+#		bread.set_chap_number(previous)
+#		bread.set_main(self)
+#		if _i == 0:
+#			bread.set_first()
+#		# If previous
+#
+#		if _i == _nb_lasts - 2:
+#			bread.set_previous()
+#		elif _i == _nb_lasts - 1:
+#			bread.set_current()
+#		else:
+#			bread.set_normal_color()
+#		breads.add_child(bread)
+#		_i = _i + 1
+#
+#
+#	# And my sons
+#	var sons_ids = my_node.get_sons()
+#	# Maybe son sons are not secret, but the jump is
+#	var secret_jumps = my_node.get_secret_jumps()
+#
+#	# Clean choices
+#	var choices = $Background/Next/ScrollContainer/Choices
+#	Utils.delete_children(choices)
+#	for son_id in sons_ids:		
+#		# If the son is now ok to be shown, skip it
+#		if !BookData.is_node_id_freely_showable(son_id, secret_jumps):
+#			continue
+#
+#		var son = BookData.get_node(son_id)
+#		var choice = Choice.instance()
+#		choice.set_main(self)
+#		choice.update_from_son_node(son)
+#		# Display it
+#		choices.add_child(choice)
+#
+#
+#	# Maybe we are an ending, then stack a EndingChoice with data
+#	if my_node.get_ending():
+#		var choice = EndingChoice.instance()
+#		choice.set_main(self)
+#		# Need an id for display:
+#		# * is a success: take it
+#		# * is not, take ending_id entry
+#		var ending_id = my_node.get_success()
+#		if ending_id == null:
+#			ending_id = my_node.get_ending_id()
+#		choice.set_ending_id(ending_id)
+#
+#		# Text
+#		var ending_txt = BookData.get_success_txt(ending_id)
+#		if ending_txt == '':  # not a success
+#			ending_txt = my_node.get_ending_txt()
+#		choice.set_label(ending_txt)
+#		choice.set_ending_type(my_node.get_ending_type())
+#
+#		choices.add_child(choice)
 
 func jump_to_previous_chapter():
 	var previous_id = Player.jump_to_previous_chapter()
@@ -537,29 +545,24 @@ func jump_to_previous_chapter():
 		
 	self.jump_back(previous_id)
 
-
 # We are jumping back until we found the good chapter number
 func jump_back(previous_id):
 	var can_jump_back = Player.jump_back(previous_id)
 	self.go_to_node(previous_id)
-	
 
 func change_spoils(b):
 	AppParameters.set_spoils(b)
 	self.refresh()
 
-
 func change_sound(b):
 	AppParameters.set_sound(b)
 	self.refresh()
-
 
 # When billy type is change in Player, refresh display and play sound
 func billy_type_is_changed():
 	var current_billy = AppParameters.get_billy_type()
 	self.refresh()
 	Sounder.play('billy-%s.mp3' % current_billy)
-	
 
 func _change_book_number(book_number):
 	var did_change = AppParameters.set_book_number(book_number)
@@ -793,28 +796,30 @@ func _on_combat_validate_button_pressed():
 
 
 func _refresh_options_stats():
-	$Options/Stats/PlayerPvValue.text = '%s' % Player.get_pv()
-	
-	$Options/Stats/PlayerEndValue.text = '%s' % Player.get_end()
-	$Options/Stats/PlayerEndValueDetail.text = '(base:2, item/billy:%s' % Player.get_end_items() + ', chapitres:%s)' % Player.get_end_chapters()
-	
-	$Options/Stats/PlayerHabValue.text = '%s' % Player.get_hab()
-	$Options/Stats/PlayerHabValueDetail.text = '(base:2, item/billy:%s' % Player.get_hab_items() + ', chapitres:%s)' % Player.get_hab_chapters()
-	
-	$Options/Stats/PlayerAdrValue.text = '%s' % Player.get_adr()
-	$Options/Stats/PlayerAdrValueDetail.text = '(base:1, item/billy:%s' % Player.get_adr_items() + ', chapitres:%s)' % Player.get_adr_chapters()
-	
-	$Options/Stats/PlayerChaValue.text = ('%s' % Player.get_cha()) + ('/%s' % Player.get_chamax())
-	$Options/Stats/PlayerChaValueDetail.text = '(base:3, item/billy:%s' % Player.get_chamax_items() + ', chapitres:%s)' % Player.get_chamax_chapters()
-	
-	$Options/Stats/PlayerCritValue.text = '%s' % Player.get_crit()
-	$Options/Stats/PlayerCritValueDetail.text = '(item/billy:%s' % Player.get_crit_items() + ', chapitres:%s)' % Player.get_crit_chapters()
-	
-	$Options/Stats/PlayerDegValue.text = '%s' % Player.get_deg()
-	$Options/Stats/PlayerDegValueDetail.text = '(item/billy:%s' % Player.get_deg_items() + ', chapitres:%s)' % Player.get_deg_chapters()
-	
-	$Options/Stats/PlayerArmValue.text = '%s' % Player.get_arm()
-	$Options/Stats/PlayerArmValueDetail.text = '(item/billy:%s' % Player.get_arm_items() + ', chapitres:%s)' % Player.get_arm_chapters()
+	#TODO LINKLINSSE
+	pass
+#	$Options/Stats/PlayerPvValue.text = '%s' % Player.get_pv()
+#
+#	$Options/Stats/PlayerEndValue.text = '%s' % Player.get_end()
+#	$Options/Stats/PlayerEndValueDetail.text = '(base:2, item/billy:%s' % Player.get_end_items() + ', chapitres:%s)' % Player.get_end_chapters()
+#
+#	$Options/Stats/PlayerHabValue.text = '%s' % Player.get_hab()
+#	$Options/Stats/PlayerHabValueDetail.text = '(base:2, item/billy:%s' % Player.get_hab_items() + ', chapitres:%s)' % Player.get_hab_chapters()
+#
+#	$Options/Stats/PlayerAdrValue.text = '%s' % Player.get_adr()
+#	$Options/Stats/PlayerAdrValueDetail.text = '(base:1, item/billy:%s' % Player.get_adr_items() + ', chapitres:%s)' % Player.get_adr_chapters()
+#
+#	$Options/Stats/PlayerChaValue.text = ('%s' % Player.get_cha()) + ('/%s' % Player.get_chamax())
+#	$Options/Stats/PlayerChaValueDetail.text = '(base:3, item/billy:%s' % Player.get_chamax_items() + ', chapitres:%s)' % Player.get_chamax_chapters()
+#
+#	$Options/Stats/PlayerCritValue.text = '%s' % Player.get_crit()
+#	$Options/Stats/PlayerCritValueDetail.text = '(item/billy:%s' % Player.get_crit_items() + ', chapitres:%s)' % Player.get_crit_chapters()
+#
+#	$Options/Stats/PlayerDegValue.text = '%s' % Player.get_deg()
+#	$Options/Stats/PlayerDegValueDetail.text = '(item/billy:%s' % Player.get_deg_items() + ', chapitres:%s)' % Player.get_deg_chapters()
+#
+#	$Options/Stats/PlayerArmValue.text = '%s' % Player.get_arm()
+#	$Options/Stats/PlayerArmValueDetail.text = '(item/billy:%s' % Player.get_arm_items() + ', chapitres:%s)' % Player.get_arm_chapters()
 
 
 func _switch_to_book_fcdn():
@@ -842,3 +847,5 @@ func _on_morelore_button_pressed():
 func _on_image_author_button_pressed():
 	OS.shell_open("https://twitter.com/DrazielUnicorn");
 
+func _on_navigation_arrow_on_navigation_arrow_pressed():
+	SceneSwitcher.next_page()

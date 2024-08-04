@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/utils/title_card.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[node name="title_card" type="Panel"]
+margin_right = 328.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 104, 392 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="header" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 48.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+
+[node name="title" type="Label" parent="header"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_right = 92.0
+custom_fonts/font = ExtResource( 1 )
+text = "UNSET"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -55,3 +55,5 @@ margin_left = -32.0
 margin_top = -476.0
 margin_right = 32.0
 margin_bottom = 476.0
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

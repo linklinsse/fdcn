@@ -1,18 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/pages/adventure/scenes/ChapterChoice.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/utils/right_nexter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/common/toolbar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/utils/navigation_arrow.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
@@ -28,40 +20,10 @@ bg_color = Color( 1, 1, 1, 1 )
 border_width_bottom = 2
 
 [node name="Chapitres" type="Panel"]
-margin_left = 597.622
-margin_top = 2.08038
-margin_right = 1155.62
-margin_bottom = 1048.08
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
-
-[node name="Left-Back" parent="." instance=ExtResource( 8 )]
-anchor_left = 100.0
-anchor_right = 100.0
-margin_left = 0.272339
-margin_top = 1009.19
-margin_right = 972.272
-margin_bottom = 1051.19
-rect_rotation = 90.0
-rect_pivot_offset = Vector2( -548, 32 )
-mouse_filter = 1
-txt = "Aventure"
-dest = "main"
-
-[node name="Right-Next" parent="." instance=ExtResource( 6 )]
-anchor_left = 100.0
-anchor_right = 100.0
-margin_left = 557.631
-margin_top = 26.0717
-margin_right = 1529.63
-margin_bottom = 68.0716
-custom_styles/panel = SubResource( 7 )
-
-[node name="top_menu" parent="." instance=ExtResource( 7 )]
-margin_top = -1.0
-margin_right = 558.0
-margin_bottom = 41.0
-custom_styles/panel = SubResource( 8 )
 
 [node name="AllChapters" type="Panel" parent="."]
 margin_left = 59.0

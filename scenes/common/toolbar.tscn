@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://images/fork.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://images/fdcn_title.png" type="Texture" id=15]
 [ext_resource path="res://fonts/amon_font_small.tres" type="DynamicFont" id=16]
 [ext_resource path="res://scenes/common/toolbar.gd" type="Script" id=17]
+[ext_resource path="res://scenes/common/options.tscn" type="PackedScene" id=18]
 
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 1, 1, 1 )
@@ -374,6 +375,8 @@ margin_right = 439.991
 margin_bottom = 46.9993
 pressed = true
 flat = true
+
+[node name="Options" parent="." instance=ExtResource( 18 )]
 
 [connection signal="pressed" from="OptionsBtn/button" to="." method="_on_button_options"]
 [connection signal="pressed" from="Pages/BlockMain/button" to="." method="focus_to_main"]

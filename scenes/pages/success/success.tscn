@@ -1,18 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/pages/success/scenes/Success.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/utils/right_nexter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/common/toolbar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/utils/navigation_arrow.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
@@ -25,44 +17,10 @@ bg_color = Color( 1, 1, 1, 1 )
 border_width_bottom = 2
 
 [node name="Succes" type="Panel"]
-margin_left = 1192.29
-margin_top = 6.08038
-margin_right = 1750.29
-margin_bottom = 1052.08
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Left-Back" parent="." instance=ExtResource( 8 )]
-anchor_left = 100.0
-anchor_right = 100.0
-margin_left = 579.984
-margin_top = 1008.0
-margin_right = 972.0
-margin_bottom = 1057.0
-rect_rotation = 90.0
-rect_pivot_offset = Vector2( -548, 32 )
-mouse_filter = 1
-txt = "Tous les chapitres"
-dest = "chapitres"
-
-[node name="Right-Next" parent="." instance=ExtResource( 6 )]
-anchor_left = 100.0
-anchor_right = 100.0
-margin_left = 558.0
-margin_top = 32.0
-margin_right = 1530.0
-margin_bottom = 75.0
-custom_styles/panel = SubResource( 7 )
-
-[node name="top_menu" parent="." instance=ExtResource( 7 )]
-margin_left = -0.290039
-margin_top = -6.08038
-margin_right = 557.71
-margin_bottom = 35.9196
-custom_styles/panel = SubResource( 8 )
 
 [node name="Success" type="Panel" parent="."]
 margin_left = 56.9229

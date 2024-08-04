@@ -130,8 +130,7 @@ func _switch_to_debrouillard():
 
 func _on_button_options():
 	print('SHOW OPTIONS')
-	self.main._on_option_btn_pressed()
-
+	$Options.show()
 
 func _on_sound_button_toggled(button_pressed):
 	#self.main.change_sound(button_pressed)

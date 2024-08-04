@@ -1,14 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/common/options.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/pages/success/success.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/pages/about/about.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/pages/adventure/adventure.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/pages/chapiters/chapiters.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/pages/lore/lore.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/common/scene_switcher.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/common/toolbar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/utils/navigation_arrow.tscn" type="PackedScene" id=11]
 [ext_resource path="res://images/soon.png" type="Texture" id=14]
 [ext_resource path="res://scenes/pages/adventure/scenes/SuccessPopup.tscn" type="PackedScene" id=23]
 
@@ -18,32 +12,6 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-
-[node name="Background" parent="." instance=ExtResource( 5 )]
-
-[node name="Chapitres" parent="." instance=ExtResource( 6 )]
-visible = false
-
-[node name="Succes" parent="." instance=ExtResource( 3 )]
-visible = false
-
-[node name="Lore" parent="." instance=ExtResource( 7 )]
-visible = false
-
-[node name="About" parent="." instance=ExtResource( 4 )]
-visible = false
-
-[node name="DEBUG" type="Label" parent="."]
-visible = false
-margin_left = 55.3588
-margin_top = 357.418
-margin_right = 101.359
-margin_bottom = 371.418
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "DEBUG"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Camera" type="Camera2D" parent="."]
 visible = false
@@ -66,8 +34,6 @@ texture = ExtResource( 14 )
 visible = false
 
 [node name="SuccessPopup" parent="." instance=ExtResource( 23 )]
-
-[node name="Options" parent="." instance=ExtResource( 2 )]
 
 [node name="ItemPopups" type="Panel" parent="."]
 visible = false
@@ -94,6 +60,8 @@ mouse_filter = 1
 
 [node name="ItemPopupsCont" type="VBoxContainer" parent="ItemPopups/ScrollContainer"]
 
-[node name="scene_switcher" parent="." instance=ExtResource( 8 )]
-
 [node name="top_menu" parent="." instance=ExtResource( 9 )]
+
+[node name="navigation_arrow" parent="." instance=ExtResource( 11 )]
+
+[connection signal="on_navigation_arrow_pressed" from="navigation_arrow" to="." method="_on_navigation_arrow_on_navigation_arrow_pressed"]

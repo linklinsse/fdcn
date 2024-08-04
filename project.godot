@@ -16,7 +16,7 @@ _global_script_class_icons={
 
 config/name="fdcn"
 config/description="Application de suivi de progression dans le livre La Forteresse du Chaudron Noir"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 boot_splash/image="res://images/barbare_icon.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://images/fdcn_icon.png"
@@ -29,6 +29,7 @@ BookData="*res://scripts/auto_loads/book_data.gd"
 AppParameters="*res://scripts/auto_loads/parameters.gd"
 Swiper="*res://scripts/auto_loads/swipe.gd"
 Player="*res://scripts/auto_loads/player.gd"
+SceneSwitcher="*res://scripts/auto_loads/scene_switcher.gd"
 
 [display]
 

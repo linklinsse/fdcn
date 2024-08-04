@@ -1,18 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/pages/lore/scenes/LoreEntry.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/utils/right_nexter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/common/toolbar.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/utils/navigation_arrow.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
@@ -25,32 +17,10 @@ bg_color = Color( 1, 1, 1, 1 )
 border_width_bottom = 2
 
 [node name="Lore" type="Panel"]
-margin_left = 1777.0
-margin_top = 4.0
-margin_right = 2328.0
-margin_bottom = 1050.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
-
-[node name="Right-Next" parent="." instance=ExtResource( 6 )]
-anchor_left = 100.0
-anchor_right = 100.0
-margin_left = 559.0
-margin_top = 28.0
-margin_right = 1534.0
-margin_bottom = 70.0
-custom_styles/panel = SubResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="top_menu" parent="." instance=ExtResource( 7 )]
-margin_left = -1.0
-margin_top = -4.0
-margin_right = 559.0
-margin_bottom = 38.0
-custom_styles/panel = SubResource( 8 )
-script = null
 
 [node name="Lore" type="Panel" parent="."]
 margin_left = 58.0
@@ -273,16 +243,3 @@ margin_bottom = 34.0
 focus_mode = 2
 custom_fonts/font = ExtResource( 1 )
 text = "Draziel"
-
-[node name="Left-Back" parent="." instance=ExtResource( 8 )]
-anchor_left = 100.0
-anchor_right = 100.0
-margin_left = -0.753906
-margin_top = 1011.12
-margin_right = 971.246
-margin_bottom = 1053.12
-rect_rotation = 90.0
-rect_pivot_offset = Vector2( -548, 32 )
-mouse_filter = 1
-txt = "Les succès"
-dest = "success"
