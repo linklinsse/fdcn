@@ -13,7 +13,7 @@ onready var ItemPopup = preload("res://scenes/pages/adventure/scenes/ItemPopup.t
 
 onready var gauge = $Background/GlobalCompletion/Gauge
 
-onready var camera = $Camera
+#onready var camera = $Camera
 
 var current_page = 'main'
 
@@ -847,5 +847,3 @@ func _on_morelore_button_pressed():
 func _on_image_author_button_pressed():
 	OS.shell_open("https://twitter.com/DrazielUnicorn");
 
-func _on_navigation_arrow_on_navigation_arrow_pressed():
-	SceneSwitcher.next_page()

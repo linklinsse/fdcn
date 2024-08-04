@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://images/new_player.png" type="Texture" id=2]
+[ext_resource path="res://images/bug.png" type="Texture" id=3]
+[ext_resource path="res://scenes/utils/icon_button.tscn" type="PackedScene" id=4]
+
+[node name="MarginContainer" type="MarginContainer"]
+margin_right = 302.0
+margin_bottom = 128.0
+custom_constants/margin_right = 9
+custom_constants/margin_top = 9
+custom_constants/margin_left = 9
+custom_constants/margin_bottom = 9
+
+[node name="action" type="HBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 9.0
+margin_right = 293.0
+margin_bottom = 119.0
+
+[node name="icon_button2" parent="action" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 140.0
+margin_bottom = 110.0
+button_text = "Nouveau Billy"
+texture = ExtResource( 2 )
+
+[node name="icon_button" parent="action" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 110.0
+button_text = "J'ai un bug"
+texture = ExtResource( 3 )

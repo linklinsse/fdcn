@@ -1,3 +1,4 @@
+tool
 extends Panel
 
 export(String, MULTILINE) var content = ""
