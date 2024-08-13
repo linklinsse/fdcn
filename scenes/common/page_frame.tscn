@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="page_frame" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 88
+custom_constants/margin_top = 56
+custom_constants/margin_left = 88
+custom_constants/margin_bottom = 44

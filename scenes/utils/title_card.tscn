@@ -15,6 +15,7 @@ margin_bottom = 176.0
 rect_pivot_offset = Vector2( 104, 392 )
 custom_styles/panel = SubResource( 2 )
 script = ExtResource( 2 )
+sideTitle = "UNSET"
 
 [node name="header" type="Panel" parent="."]
 anchor_right = 1.0

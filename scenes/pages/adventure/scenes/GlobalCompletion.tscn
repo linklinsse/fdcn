@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/amon_font_small.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/pages/adventure/scenes/gauge.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/fdcn_icon_transparent.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.192157, 0.231373, 0.278431, 1 )
+
+[node name="GlobalCompletion" type="Panel"]
+anchor_right = 0.262
+anchor_bottom = 0.168
+margin_right = 0.359985
+margin_bottom = -0.440018
+mouse_filter = 1
+custom_styles/panel = SubResource( 2 )
+
+[node name="Header" type="Panel" parent="."]
+visible = false
+margin_right = 188.0
+margin_bottom = 42.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 3 )
+
+[node name="Label" type="Label" parent="Header"]
+margin_left = 48.0997
+margin_top = 4.0547
+margin_right = 155.1
+margin_bottom = 35.0547
+custom_fonts/font = ExtResource( 1 )
+text = "Completé"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fdcn" type="Sprite" parent="Header"]
+position = Vector2( 22.2236, 20.9834 )
+scale = Vector2( 0.103378, 0.0980473 )
+texture = ExtResource( 5 )
+
+[node name="Gauge" parent="." instance=ExtResource( 3 )]
+position = Vector2( 88.3884, 97.9343 )
+
+[node name="footnode" type="Label" parent="."]
+margin_left = 142.403
+margin_top = 164.985
+margin_right = 185.403
+margin_bottom = 178.985
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+custom_fonts/font = ExtResource( 2 )
+text = "X/606"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

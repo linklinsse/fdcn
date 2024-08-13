@@ -647,8 +647,9 @@ func show_options():
 	
 	# Currently options are in the main page
 	Swiper.focus_to_main()
-	$ItemPopups.visible = false  # hide the popups for click catch
-	$Options.visible = true
+#	FIX LINKLINSSE
+#	$ItemPopups.visible = false  # hide the popups for click catch
+#	$Options.visible = true
 
 
 func _on_options_validate_button_pressed():
@@ -685,15 +686,19 @@ func _on_dice_pressed():
 
 
 func __set_tab_not_selected(tab):
-	var _style = tab.get('custom_styles/panel')
-	_style.set_bg_color(Color('999999'))  # set to dark blue
-	print('__set_tab_not_selected', tab)
+	#FIX LINKLINSSE
+	pass
+#	var _style = tab.get('custom_styles/panel')
+#	_style.set_bg_color(Color('999999'))  # set to dark blue
+#	print('__set_tab_not_selected', tab)
 
 
 func __set_tab_selected(tab):
-	var _style = tab.get('custom_styles/panel')
-	_style.set_bg_color(Color('e0e2e5'))  # set to light
-	print('__set_tab_selected', tab)
+	#FIX LINKLINSSE
+	pass
+#	var _style = tab.get('custom_styles/panel')
+#	_style.set_bg_color(Color('e0e2e5'))  # set to light
+#	print('__set_tab_selected', tab)
 
 ##################### Options
 
@@ -706,9 +711,10 @@ func _options_show_equipement():
 	self.__set_tab_not_selected($Options/Header/TabSelectBook)
 	
 	# Now all is changed, we can display them
-	$Options/Equipement.visible = true
-	$Options/BookSelect.visible = false
-	$Options/Stats.visible = false
+#	FIX LINKLINSSE
+#	$Options/Equipement.visible = true
+#	$Options/BookSelect.visible = false
+#	$Options/Stats.visible = false
 	
 
 func _options_show_stats():

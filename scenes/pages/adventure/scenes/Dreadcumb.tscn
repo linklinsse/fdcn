@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/pages/adventure/scenes/bread.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+
+[node name="Dreadcumb" type="Panel"]
+anchor_right = 0.456
+anchor_bottom = 0.096
+margin_right = -0.320007
+margin_bottom = 0.32
+custom_styles/panel = SubResource( 2 )
+
+[node name="breads" type="HBoxContainer" parent="."]
+margin_left = 0.530327
+margin_top = 42.0728
+margin_right = 144.53
+margin_bottom = 42.0728
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bread" parent="breads" instance=ExtResource( 3 )]
+margin_right = 70.0
+margin_bottom = 0.0
+
+[node name="bread2" parent="breads" instance=ExtResource( 3 )]
+margin_left = 74.0
+margin_right = 144.0
+margin_bottom = 0.0

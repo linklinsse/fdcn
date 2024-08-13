@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/pages/success/scenes/Success.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/common/page_frame.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
@@ -22,18 +23,17 @@ anchor_bottom = 1.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 1 )
 
-[node name="Success" type="Panel" parent="."]
-margin_left = 56.9229
-margin_top = 52.0
-margin_right = 501.923
-margin_bottom = 1020.0
+[node name="page_frame" parent="." instance=ExtResource( 3 )]
+
+[node name="Success" type="Panel" parent="page_frame"]
+margin_left = 88.0
+margin_top = 56.0
+margin_right = 632.0
+margin_bottom = 1036.0
 mouse_filter = 1
 custom_styles/panel = SubResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Header" type="Panel" parent="Success"]
+[node name="Header" type="Panel" parent="page_frame/Success"]
 margin_right = 445.0
 margin_bottom = 42.0
 mouse_filter = 1
@@ -42,7 +42,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Success/Header"]
+[node name="Label" type="Label" parent="page_frame/Success/Header"]
 margin_left = 121.524
 margin_top = 5.00259
 margin_right = 305.524
@@ -53,7 +53,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VScrollBar" type="ScrollContainer" parent="Success"]
+[node name="VScrollBar" type="ScrollContainer" parent="page_frame/Success"]
 margin_top = 43.6818
 margin_right = 442.0
 margin_bottom = 968.682
@@ -64,12 +64,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Success" type="VBoxContainer" parent="Success/VScrollBar"]
+[node name="Success" type="VBoxContainer" parent="page_frame/Success/VScrollBar"]
 margin_bottom = 50.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Success" parent="Success/VScrollBar/Success" instance=ExtResource( 2 )]
+[node name="Success" parent="page_frame/Success/VScrollBar/Success" instance=ExtResource( 2 )]
 margin_right = 0.0
 custom_styles/panel = SubResource( 9 )
