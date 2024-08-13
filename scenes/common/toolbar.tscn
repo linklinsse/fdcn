@@ -17,7 +17,7 @@
 [ext_resource path="res://images/fdcn_title.png" type="Texture" id=15]
 [ext_resource path="res://fonts/amon_font_small.tres" type="DynamicFont" id=16]
 [ext_resource path="res://scenes/common/toolbar.gd" type="Script" id=17]
-[ext_resource path="res://scenes/common/options.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/common/option_frame.tscn" type="PackedScene" id=18]
 
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 1, 1, 1 )

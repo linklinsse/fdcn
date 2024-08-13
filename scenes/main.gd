@@ -4,7 +4,7 @@ var current_lines = []
 
 
 onready var Bread = preload("res://scenes/pages/adventure/scenes/bread.tscn")
-onready var Choice = preload("res://scenes/pages/adventure/scenes/ChapterChoice.tscn")
+onready var Choice = preload("res://scenes/common/ChapterChoice.tscn")
 onready var EndingChoice = preload("res://scenes/pages/adventure/scenes/EndingChoice.tscn")
 onready var Success = preload("res://scenes/pages/success/scenes/Success.tscn")
 onready var LoreEntry = preload("res://scenes/pages/lore/scenes/LoreEntry.tscn")

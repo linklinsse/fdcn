@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/pages/adventure/scenes/ChapterChoice.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/common/ChapterChoice.tscn" type="PackedScene" id=2]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )

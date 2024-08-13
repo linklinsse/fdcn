@@ -1,17 +1,17 @@
 [gd_scene load_steps=35 format=2]
 
+[ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scenes/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/fdcn_book.jpg" type="Texture" id=3]
 [ext_resource path="res://images/backpack.png" type="Texture" id=4]
 [ext_resource path="res://images/billys/prudent.png" type="Texture" id=5]
-[ext_resource path="res://images/billys/debrouillard.png" type="Texture" id=6]
-[ext_resource path="res://images/billys/paysan.png" type="Texture" id=7]
-[ext_resource path="res://images/billys/guerrier.png" type="Texture" id=8]
+[ext_resource path="res://images/billys/paysan.png" type="Texture" id=6]
+[ext_resource path="res://images/billys/debrouillard.png" type="Texture" id=7]
+[ext_resource path="res://images/book_select.png" type="Texture" id=8]
 [ext_resource path="res://images/health.png" type="Texture" id=9]
-[ext_resource path="res://images/cdsi_book.jpg" type="Texture" id=10]
-[ext_resource path="res://images/fdcn_book.jpg" type="Texture" id=11]
-[ext_resource path="res://images/book_select.png" type="Texture" id=12]
-[ext_resource path="res://shaders/gray.gdshader" type="Shader" id=13]
+[ext_resource path="res://images/billys/guerrier.png" type="Texture" id=10]
+[ext_resource path="res://images/cdsi_book.jpg" type="Texture" id=11]
+[ext_resource path="res://shaders/gray.gdshader" type="Shader" id=12]
 
 [sub_resource type="StyleBoxFlat" id=35]
 bg_color = Color( 1, 1, 1, 1 )
@@ -32,25 +32,25 @@ bg_color = Color( 1, 1, 1, 1 )
 [sub_resource type="StyleBoxEmpty" id=21]
 
 [sub_resource type="ShaderMaterial" id=39]
-shader = ExtResource( 13 )
+shader = ExtResource( 12 )
 shader_param/grayscale = false
 
 [sub_resource type="StyleBoxEmpty" id=22]
 
 [sub_resource type="ShaderMaterial" id=23]
-shader = ExtResource( 13 )
+shader = ExtResource( 12 )
 shader_param/grayscale = false
 
 [sub_resource type="StyleBoxEmpty" id=24]
 
 [sub_resource type="ShaderMaterial" id=25]
-shader = ExtResource( 13 )
+shader = ExtResource( 12 )
 shader_param/grayscale = false
 
 [sub_resource type="StyleBoxEmpty" id=26]
 
 [sub_resource type="ShaderMaterial" id=27]
-shader = ExtResource( 13 )
+shader = ExtResource( 12 )
 shader_param/grayscale = false
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -74,11 +74,11 @@ bg_color = Color( 1, 1, 1, 1 )
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="ShaderMaterial" id=37]
-shader = ExtResource( 13 )
+shader = ExtResource( 12 )
 shader_param/grayscale = false
 
 [sub_resource type="ShaderMaterial" id=38]
-shader = ExtResource( 13 )
+shader = ExtResource( 12 )
 shader_param/grayscale = false
 
 [node name="Options" type="Panel"]
@@ -137,7 +137,7 @@ custom_styles/panel = SubResource( 31 )
 [node name="SelectBookSprite" type="Sprite" parent="Header/TabSelectBook"]
 position = Vector2( 45, 99 )
 scale = Vector2( 0.158966, 0.199014 )
-texture = ExtResource( 12 )
+texture = ExtResource( 8 )
 
 [node name="button" type="TextureButton" parent="Header/TabSelectBook"]
 margin_left = -1.0
@@ -163,7 +163,7 @@ custom_styles/panel = SubResource( 21 )
 material = SubResource( 39 )
 position = Vector2( 74.416, 198.723 )
 scale = Vector2( 0.822243, 0.908078 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="button" type="TextureButton" parent="Equipement/BlockGuerrier"]
 visible = false
@@ -186,7 +186,7 @@ custom_styles/panel = SubResource( 22 )
 material = SubResource( 23 )
 position = Vector2( 64.0526, 194.537 )
 scale = Vector2( 0.864614, 0.907562 )
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="button" type="TextureButton" parent="Equipement/BlockPaysan"]
 visible = false
@@ -237,7 +237,7 @@ __meta__ = {
 material = SubResource( 27 )
 position = Vector2( 82.4091, 187.981 )
 scale = Vector2( 0.836486, 0.923395 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="button" type="TextureButton" parent="Equipement/BlockDebrouillard"]
 visible = false
@@ -261,10 +261,10 @@ margin_bottom = 5.0
 margin_right = 450.0
 margin_bottom = 104.0
 
-[node name="Panel" parent="Equipement/ItemsCont/Items" instance=ExtResource( 3 )]
+[node name="Panel" parent="Equipement/ItemsCont/Items" instance=ExtResource( 1 )]
 custom_styles/panel = SubResource( 1 )
 
-[node name="Panel2" parent="Equipement/ItemsCont/Items" instance=ExtResource( 3 )]
+[node name="Panel2" parent="Equipement/ItemsCont/Items" instance=ExtResource( 1 )]
 margin_top = 54.0
 margin_bottom = 104.0
 custom_styles/panel = SubResource( 1 )
@@ -677,7 +677,7 @@ custom_styles/panel = SubResource( 36 )
 material = SubResource( 37 )
 position = Vector2( 213.571, 265.736 )
 scale = Vector2( 0.184632, 0.217434 )
-texture = ExtResource( 11 )
+texture = ExtResource( 3 )
 
 [node name="button" type="TextureButton" parent="BookSelect/BoolSelectFcdn"]
 margin_left = 26.0
@@ -697,7 +697,7 @@ custom_styles/panel = SubResource( 36 )
 material = SubResource( 38 )
 position = Vector2( 221.423, 298.373 )
 scale = Vector2( 0.742878, 0.856293 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [node name="button" type="TextureButton" parent="BookSelect/BoolSelectCdsi"]
 margin_left = 33.0
