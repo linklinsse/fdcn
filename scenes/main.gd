@@ -44,10 +44,6 @@ func _reload_all_player():
 
 func _do_load_book_context():
 	print('_do_load_book_context')
-	# Create all chapters in the 2nd screen
-	self.insert_all_chapters()
-	# And success to the 3th
-	self.insert_all_success()
 	# Also lore as book have differents gods ^^
 	self.insert_all_lore()
 	
@@ -223,50 +219,11 @@ func jump_to_chapter_100aine(centaine):
 			scroll_bar.scroll_vertical = choice.rect_position.y
 			return
 
-
-# We need to compare integer, not strings
-static func _sort_all_chapters(nb1, nb2):
-		if int(nb1) < int(nb2):
-			return true
-		return false
-
-
-func insert_all_chapters():
-	#TODO LINKLINSSE
-	pass
-#	var all_choices = $Chapitres/AllChapters/VScrollBar/Choices
-#	Utils.delete_children(all_choices)
-#
-#	var chapter_ids = BookData.get_all_nodes().keys()
-#	chapter_ids.sort_custom(self, '_sort_all_chapters')
-#
-#	for chapter_id in chapter_ids:
-#		var chapter_data = BookData.get_node(chapter_id)
-#
-#		var choice = Choice.instance()
-#		choice.set_main(self)
-#		choice.set_chapitre(chapter_data.get_id())
-#		all_choices.add_child(choice)
-
-
 func _update_all_chapters():
 	var all_choices = $Chapitres/AllChapters/VScrollBar/Choices
 	for choice in all_choices.get_children():
 		choice.update_when_in_all_chapters()
 		
-
-
-func insert_all_success():
-	#TODO LINKLINSSE
-	pass
-#	var all_success = $Succes/Success/VScrollBar/Success
-#	Utils.delete_children(all_success)
-#
-#	for success in BookData.get_all_success():
-#		var s = Success.instance()
-#		s.set_main(self)
-#		s.set_from_success_object(success)
-#		all_success.add_child(s)
 
 func insert_all_lore():
 	#TODO LINKLINSSE
@@ -590,26 +547,7 @@ func set_camera_to_pos(x):
 	#self.camera.position.x = x
 
 
-func jump_to_chapter_1():
-	self.jump_to_chapter_100aine(1)
 
-func jump_to_chapter_100():
-	self.jump_to_chapter_100aine(100)
-	
-func jump_to_chapter_200():
-	self.jump_to_chapter_100aine(200)
-	
-func jump_to_chapter_300():
-	self.jump_to_chapter_100aine(300)
-	
-func jump_to_chapter_400():
-	self.jump_to_chapter_100aine(400)
-	
-func jump_to_chapter_500():
-	self.jump_to_chapter_100aine(500)
-	
-func jump_to_chapter_600():
-	self.jump_to_chapter_100aine(600)	
 	
 func _on_button_new_billy():
 	$About/GenericTextPopup.open()

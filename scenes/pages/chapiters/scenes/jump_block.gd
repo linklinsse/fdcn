@@ -8,6 +8,5 @@ signal on_jump_block_pressed()
 func _ready():
 	$MarginContainer/label.text = str(self.value)
 
-
 func _on_button_pressed():
 	emit_signal("on_jump_block_pressed", value)
