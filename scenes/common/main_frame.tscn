@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/utils/ui/navigation_arrow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/utils/ui/navigation_arrow/navigation_arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/common/toolbar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/common/main_frame.gd" type="Script" id=3]
 

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/common/chapiter_choice/chapiter_tag/chapiter_tag.gd" type="Script" id=1]
+
+[node name="chapiter_tag" type="AspectRatioContainer"]
+anchor_right = 0.056
+anchor_bottom = 0.074
+margin_right = -20.32
+margin_bottom = 0.0800018
+rect_min_size = Vector2( 20, 80 )
+script = ExtResource( 1 )
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="polygone" type="Polygon2D" parent="."]
+position = Vector2( -21.2133, 0.491762 )
+scale = Vector2( 1, 1.09716 )
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+polygon = PoolVector2Array( 21.2133, 72.4675, 45.2133, -0.448215, 61.2133, -0.448215, 37.2723, 72.4675 )
+
+[node name="title" type="Label" parent="polygone"]
+margin_left = 23.0
+margin_top = 68.0
+margin_right = 95.0
+margin_bottom = 83.0
+rect_rotation = -71.7
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Undefined"
+align = 1
+valign = 2

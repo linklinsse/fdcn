@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/utils/ui/icon_button.gd" type="Script" id=1]
+[ext_resource path="res://scenes/utils/ui/icon_button/icon_button.gd" type="Script" id=1]
 [ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://images/caution.png" type="Texture" id=3]
 

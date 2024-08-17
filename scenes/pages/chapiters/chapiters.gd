@@ -1,7 +1,7 @@
 extends Panel
 
 onready var all_choices = get_node("page_frame/title_card/VScrollBar/choices")
-onready var Choice = preload("res://scenes/common/ChapterChoice.tscn")
+onready var Choice = preload("res://scenes/common/chapiter_choice/chapter_choice.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,13 +9,11 @@ func _ready():
 
 # We need to compare integer, not strings
 static func _sort_all_chapters(nb1, nb2):
-		if int(nb1) < int(nb2):
-			return true
-		return false
+	if int(nb1) < int(nb2):
+		return true
+	return false
 
-#TODO FIXME
 func insert_all_chapters():
-	print(all_choices)
 	Utils.delete_children(all_choices)
 	var chapter_ids = BookData.get_all_nodes().keys()
 	chapter_ids.sort_custom(self, '_sort_all_chapters')
@@ -26,6 +24,7 @@ func insert_all_chapters():
 		var choice = Choice.instance()
 		choice.set_main(self)
 		choice.set_chapitre(chapter_data.get_id())
+		choice.set_label(chapter_data.get_chapter())
 		all_choices.add_child(choice)
 
 #TODO FIXME

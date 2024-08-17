@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/pages/chapiters/chapiters.gd" type="Script" id=1]
-[ext_resource path="res://scenes/common/ChapterChoice.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/common/chapiter_choice/chapter_choice.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/common/page_frame.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/utils/ui/title_card.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/utils/ui/title_card/title_card.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/pages/chapiters/scenes/jump_bar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -51,7 +51,9 @@ __meta__ = {
 }
 
 [node name="ChapterChoice" parent="page_frame/title_card/VScrollBar/choices" instance=ExtResource( 2 )]
+anchor_right = 0.0
 margin_right = 544.0
+margin_bottom = 75.0
 custom_styles/panel = SubResource( 9 )
 
 [connection signal="on_jump_pressed" from="page_frame/title_card/jump_bar" to="." method="_on_jump_bar_on_jump_pressed"]

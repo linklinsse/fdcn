@@ -1,0 +1,208 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://fonts/amon_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://fonts/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/common/chapiter_choice/chapter_choice.gd" type="Script" id=3]
+[ext_resource path="res://scenes/common/chapiter_choice/chapiter_tag/chapiter_tag.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_bottom = 2
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.92549, 0.929412, 0.94902, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.956863, 0.345098, 0.345098, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0.760784, 0.666667, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+font_data = ExtResource( 2 )
+
+[node name="chapiter_choice" type="Panel"]
+anchor_right = 1.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 75 )
+mouse_filter = 1
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="tags" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 160.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 160, 80 )
+
+[node name="already_seen_tag" parent="HBoxContainer/tags" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 20.0
+margin_bottom = 80.0
+title = "Déjà Vu"
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="session_seen_tag" parent="HBoxContainer/tags" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 80.0
+title = "Ce Billy"
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="combat_tag" parent="HBoxContainer/tags" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_right = 68.0
+margin_bottom = 80.0
+title = "Combat"
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="end_tag" parent="HBoxContainer/tags" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 72.0
+margin_right = 92.0
+margin_bottom = 80.0
+title = "Fin"
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="succes_tag" parent="HBoxContainer/tags" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 96.0
+margin_right = 116.0
+margin_bottom = 80.0
+title = "Succès"
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="secret_tag" parent="HBoxContainer/tags" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 120.0
+margin_right = 140.0
+margin_bottom = 80.0
+title = "Secret"
+color = Color( 0.878431, 0.886275, 0.898039, 1 )
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_left = 164.0
+margin_right = 556.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Undefined"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 560.0
+margin_right = 720.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 160, 80 )
+alignment = 2
+
+[node name="chapiter" type="CenterContainer" parent="HBoxContainer/HBoxContainer2"]
+margin_left = 34.0
+margin_right = 76.0
+margin_bottom = 80.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/HBoxContainer2/chapiter"]
+margin_top = 15.0
+margin_right = 42.0
+margin_bottom = 65.0
+
+[node name="NBChapitre" type="Label" parent="HBoxContainer/HBoxContainer2/chapiter/VBoxContainer"]
+margin_right = 42.0
+margin_bottom = 31.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "XXX"
+
+[node name="special" type="Label" parent="HBoxContainer/HBoxContainer2/chapiter/VBoxContainer"]
+margin_top = 35.0
+margin_right = 42.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0, 0.760784, 0.666667, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "XXX"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button" type="CenterContainer" parent="HBoxContainer/HBoxContainer2"]
+margin_left = 80.0
+margin_right = 160.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+
+[node name="click" type="Panel" parent="HBoxContainer/HBoxContainer2/button"]
+margin_left = 11.0
+margin_top = 11.0
+margin_right = 69.0
+margin_bottom = 69.0
+rect_min_size = Vector2( 58, 58 )
+custom_styles/panel = SubResource( 4 )
+
+[node name="special_wrong" type="Panel" parent="HBoxContainer/HBoxContainer2/button/click"]
+visible = false
+margin_right = 58.0
+margin_bottom = 56.0
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="special" type="Panel" parent="HBoxContainer/HBoxContainer2/button/click"]
+visible = false
+margin_right = 58.0
+margin_bottom = 56.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/HBoxContainer2/button/click"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = ">"
+align = 1
+valign = 1
+
+[node name="Button" type="TextureButton" parent="HBoxContainer/HBoxContainer2/button/click"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[connection signal="pressed" from="HBoxContainer/HBoxContainer2/button/click/Button" to="." method="_on_Button_pressed"]
